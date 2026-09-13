@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+---
+<BaseLayout
+  title="Not found · scanner.money blog"
+  description="That brief is not on this site."
+  canonicalPath="/404/"
+>
+  <SiteHeader />
+  <main class="site-shell">
+    <p class="site-kicker">404</p>
+    <h1 class="site-title">No brief at this URL</h1>
+    <p class="site-lede">The page is missing or unpublished. Head back to the listing.</p>
+    <p><a href="/" style="color: var(--blue)">← Briefs</a></p>
+  </main>
+</BaseLayout>

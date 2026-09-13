@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import { formatBriefDate, getPublishedBriefs } from '../lib/briefs';
+
+const briefs = getPublishedBriefs();
+---
+<BaseLayout
+  title="scanner.money blog"
+  description="Market briefs from the scanner.money desk. Separate from the trading app."
+  canonicalPath="/"
+>
+  <SiteHeader />
+  <main class="site-shell">
+    <p class="site-kicker">scanner.money · briefs</p>
+    <h1 class="site-title">Market briefs</h1>
+    <p class="site-lede">
+      Dated notes from the scanner.money desk. This is the public blog — not the trading app.
+      Hold existing weekly trends, or sit in cash.
+    </p>
+
+    {briefs.length === 0 ? (
+      <p class="empty">No published briefs yet. Drop a package into <code>content/briefs/YYYY-MM-DD/</code>.</p>
+    ) : (
+      <ul class="post-list">
+        {briefs.map((brief) => (
+          <li>
+            <a class="post-card" href={brief.href}>
+              <div class="post-meta">
+                <span class="post-type">{brief.type}</span>
+                <time datetime={brief.date}>{formatBriefDate(brief.date)}</time>
+              </div>
+              <h2>{brief.title}</h2>
+              <p>{brief.description}</p>
+            </a>
+          </li>
+        ))}
+      </ul>
+    )}
+
+    <footer class="site-footer">
+      $canner.money blog · not financial advice · <a href="/rss.xml">RSS</a> ·
+      <a href="https://scanner.money">scanner.money</a>
+    </footer>
+  </main>
+</BaseLayout>

@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#0c1017" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <title>$canner.money — Week-Ahead Brief · Sun 13 Sep 2026</title>
+  <meta name="description" content="Week-ahead brief for Sunday 13 Sep 2026. FOMC on Wednesday. Hold existing weekly trends, or sit in cash." />
+  <meta name="application-name" content="$canner.money" />
+  <style>
+:root {
+  color-scheme: dark;
+  --bg: #0c1017;
+  --surface: #151b26;
+  --elev: #10151e;
+  --panel: #0f141c;
+  --ink: #e8eef6;
+  --muted: #9aa6b8;
+  --dim: #6e7a8c;
+  --line: #243041;
+  --line-soft: #1c2433;
+  --blue: #3b82f6;
+  --blue-dim: rgba(59, 130, 246, 0.14);
+  --blue-border: rgba(59, 130, 246, 0.38);
+  --bull: #34d399;
+  --bull-dim: rgba(52, 211, 153, 0.12);
+  --bear: #f87171;
+  --bear-dim: rgba(248, 113, 113, 0.12);
+  --radius: 14px;
+  --card-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+  --glow-1: rgba(59, 130, 246, 0.14);
+  --glow-2: rgba(52, 211, 153, 0.08);
+  --max: 760px;
+  --font: "Source Sans 3", system-ui, sans-serif;
+  --display: "Bricolage Grotesque", "Source Sans 3", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+* { box-sizing: border-box; }
+html { color-scheme: dark; }
+body {
+  margin: 0;
+  color: var(--ink);
+  font: 16px/1.65 var(--font);
+  background:
+    radial-gradient(900px 420px at 10% -10%, var(--glow-1), transparent 55%),
+    radial-gradient(700px 380px at 100% 0%, var(--glow-2), transparent 50%),
+    var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+.wrap {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 28px 18px 56px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  text-decoration: none;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.08rem;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+}
+.logo img { width: 32px; height: 32px; object-fit: contain; flex-shrink: 0; }
+.date-line {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--dim);
+  margin: 0 0 12px;
+}
+h1 {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(1.45rem, 4vw, 1.9rem);
+  line-height: 1.2;
+  margin: 0 0 12px;
+  letter-spacing: -0.03em;
+}
+.lede {
+  color: var(--muted);
+  margin: 0 0 28px;
+  max-width: 62ch;
+}
+.lede p { margin: 0; }
+.beat {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+  padding: 20px 18px 18px;
+  margin: 0 0 18px;
+}
+.beat-head {
+  margin: 0 0 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.beat-n {
+  display: block;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--blue);
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+.beat h2 {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.15rem;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+.slots { display: grid; gap: 14px; }
+.slot {
+  background: var(--elev);
+  border: 1px solid var(--line-soft);
+  border-radius: 12px;
+  padding: 14px 14px 12px;
+}
+.slot h3 {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin: 0 0 8px;
+}
+.slot p {
+  margin: 0;
+  color: var(--ink);
+  max-width: 62ch;
+}
+.slot p + p { margin-top: 10px; }
+.slot .muted { color: var(--muted); }
+.slot.action {
+  border-color: var(--blue-border);
+  background: linear-gradient(180deg, #172033 0%, var(--elev) 100%);
+}
+.slot.action h3 { color: var(--blue); }
+.badge {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border-radius: 999px;
+  margin: 0 0 10px;
+  border: 1px solid transparent;
+}
+.badge.bull { background: var(--bull-dim); color: var(--bull); border-color: rgba(52,211,153,.3); }
+.facts {
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--ink);
+  margin: 0 0 12px;
+}
+.facts strong { font-weight: 600; color: var(--muted); }
+.up { color: var(--bull); }
+.chart-frame {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.chart-frame img {
+  width: 100%;
+  object-fit: contain;
+  background: var(--panel);
+}
+figcaption {
+  margin-top: 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--dim);
+}
+.rule {
+  background: linear-gradient(180deg, #172033 0%, var(--elev) 100%);
+  border: 1px solid var(--blue-border);
+  border-radius: var(--radius);
+  padding: 18px 16px;
+  box-shadow: var(--card-shadow);
+  margin: 0 0 18px;
+}
+.rule .rule-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin: 0 0 8px;
+}
+.rule h2 {
+  margin: 0 0 8px;
+  font-size: 1.25rem;
+  font-family: var(--display);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.rule p { margin: 0; color: var(--muted); max-width: 62ch; }
+.sources {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  box-shadow: var(--card-shadow);
+}
+.sources h2 {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin: 0 0 10px;
+}
+.sources ul { margin: 0; padding: 0; list-style: none; }
+.sources li {
+  position: relative;
+  padding: 7px 0 7px 14px;
+  border-bottom: 1px solid var(--line-soft);
+  color: var(--muted);
+  font-size: 13px;
+}
+.sources li:last-child { border-bottom: 0; }
+.sources li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 14px;
+  width: 6px; height: 6px;
+  border-radius: 1px;
+  background: var(--blue);
+}
+.sources a { color: var(--blue); text-decoration: none; word-break: break-all; }
+.sources a:hover { text-decoration: underline; }
+.footer {
+  margin-top: 24px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line-soft);
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--dim);
+}
+@media print {
+  body { background: #fff; color: #111; }
+  .beat, .rule, .sources { break-inside: avoid; box-shadow: none; background: #fff; border-color: #ccc; }
+  .up, .badge.bull { color: #059669; }
+  .beat-n, .slot.action h3, .rule .rule-label, .sources a { color: #2563eb; }
+}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="brand">
+      <a class="logo" href="https://scanner.money">
+        <img src="assets/logo-256.png" width="32" height="32" alt="" />
+        <span>$canner.money</span>
+      </a>
+    </header>
+
+    <p class="date-line">Week-ahead brief · Sunday 13 September 2026</p>
+    <h1>FOMC week starts with cash markets closed</h1>
+    <div class="lede">
+      <p>
+        US cash equity markets are shut on Sunday. Friday’s bounce closed a red week,
+        and Wednesday’s Fed decision with new projections is the main event on the calendar.
+        The working rule for the week stays simple: hold an existing weekly trend and respect the flip, or sit in cash.
+      </p>
+    </div>
+
+    <article class="beat">
+      <div class="beat-head">
+        <span class="beat-n">01</span>
+        <h2>Friday’s bounce into a Fed projection meeting</h2>
+      </div>
+      <div class="slots">
+        <div class="slot">
+          <h3>What happened</h3>
+          <p>
+            After a down week, US indexes bounced on Friday. The S&amp;P 500 closed at 7,656.98,
+            up 0.86% on the day and down about 0.8% for the week. The Nasdaq finished at 26,333.04,
+            up 0.96% on Friday. The 10-year yield was near 4.98%, WTI crude was near $100 a barrel,
+            and the VIX settled at 15.84. Cash markets remain closed through this Sunday brief.
+            The Federal Reserve meets this week, with the decision and Summary of Economic Projections
+            due on Wednesday.
+          </p>
+        </div>
+        <div class="slot">
+          <h3>What it means</h3>
+          <p class="muted">
+            A one-day bounce after a red week does not rewrite the weekly picture, especially with a
+            projection-meeting Fed on Wednesday. Index betas and crowded growth names can reprice with
+            the statement and dots rather than with Monday’s open alone. Names already in long weekly
+            trends — including Micron (MU), Bloom Energy (BE), Seagate (STX), Dell (DELL), and
+            Siemens Energy (ENR.DE) — do not need a fresh chase into the meeting.
+          </p>
+        </div>
+        <div class="slot">
+          <h3>Chart and trend facts</h3>
+          <p class="muted">
+            This story is tape and calendar context. There is no separate index flip print to list here.
+            Treat Friday’s closes as the last cash anchors until the week opens, and keep Wednesday’s
+            Fed release as the main regime update.
+          </p>
+        </div>
+        <div class="slot action">
+          <h3>What to do</h3>
+          <p>
+            Sit in cash unless you already hold a confirmed weekly trend. There is no need to invent a
+            Monday trade ahead of Wednesday’s decision and projections.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <article class="beat">
+      <div class="beat-head">
+        <span class="beat-n">02</span>
+        <h2>Micron still defines the AI hardware weekly trend</h2>
+      </div>
+      <div class="slots">
+        <div class="slot">
+          <h3>What happened</h3>
+          <p>
+            Friday’s rebound showed up clearly in AI hardware and related suppliers. Micron remains the
+            clearest weekly example in that group, last at $975.26 and still well above its flip level
+            as the market heads into FOMC week.
+          </p>
+        </div>
+        <div class="slot">
+          <h3>What it means</h3>
+          <p class="muted">
+            A bounce in names that are already long weekly trends is not a reason to chase the gap into
+            a Fed week. The same tape touches Micron (MU), Bloom Energy (BE), Seagate (STX), Dell (DELL),
+            and Siemens Energy (ENR.DE). If those weekly trends are already held, the job is to respect
+            the flip — not to treat Friday’s relief as a new entry.
+          </p>
+        </div>
+        <div class="slot">
+          <h3>Chart and trend facts</h3>
+          <span class="badge bull">Bullish · MU · weekly</span>
+          <p class="facts">
+            <strong>Status:</strong> bullish<br />
+            <strong>Last:</strong> $975.26<br />
+            <strong>Flip:</strong> $725.13<br />
+            <strong>Since flip:</strong> <span class="up">+743.65%</span> · 65 weeks<br />
+            <strong>Δ200WMA:</strong> <span class="up">+371.59%</span>
+          </p>
+          <p class="muted">
+            Related weekly trends with the same structure, facts only:
+            ENR.DE at €144.26 (flip €133.95, +951.07%, 137 weeks);
+            BE at $275.75 (flip $166.43, +703.00%, 59 weeks);
+            STX at $830.17 (flip $765.77, +670.17%, 69 weeks);
+            DELL at $567.29 (flip $333.74, +274.15%, 26 weeks).
+          </p>
+          <figure>
+            <div class="chart-frame">
+              <img src="charts/2026-09-13-mu.png" width="1200" height="675" alt="Micron Technology Inc. (MU) weekly chart — bullish, last $975.26, flip $725.13" />
+            </div>
+            <figcaption>MU · weekly · last $975.26 · flip $725.13 · bullish</figcaption>
+          </figure>
+        </div>
+        <div class="slot action">
+          <h3>What to do</h3>
+          <p>
+            If you already hold a weekly bull trend in Micron or the related cluster, hold it and respect
+            the flip — do not add into Wednesday. If you do not hold it, sit in cash. No FOMO into FOMC week.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <div class="rule">
+      <p class="rule-label">Rule of the day</p>
+      <h2>holdcash</h2>
+      <p>
+        Friday’s bounce and a quieter VIX into a projection-meeting Fed is not a green light to chase.
+        Hold existing weekly trends and respect the flip, or sit in cash. Protect attention for
+        Wednesday’s statement, projections, and press conference — that is when the tape updates the regime.
+      </p>
+    </div>
+
+    <section class="sources">
+      <h2>Sources</h2>
+      <ul>
+        <li><a href="https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm">Federal Reserve — FOMC calendars</a></li>
+        <li><a href="https://wtop.com/national/2026/09/how-major-us-stock-indexes-fared-friday-9-11-2026/">AP via WTOP — Friday 11 Sep index closes</a></li>
+        <li><a href="https://www.cnbc.com/2026/09/11/stock-market-next-week-outlook-for-sept-14-18-2026.html">CNBC — Stock market next week outlook Sep 14–18, 2026</a></li>
+      </ul>
+    </section>
+
+    <footer class="footer">
+      $canner.money · week-ahead brief · 2026-09-13 · not financial advice · English
+    </footer>
+  </div>
+</body>
+</html>

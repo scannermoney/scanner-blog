@@ -1,0 +1,20 @@
+---
+interface Props {
+  compact?: boolean;
+}
+const { compact = false } = Astro.props;
+---
+<header class="site-bar">
+  <a class="site-brand" href="/">
+    <img src="/logo-256.png" width="28" height="28" alt="" />
+    <span>
+      $canner.money
+      <small>blog</small>
+    </span>
+  </a>
+  <nav class="site-nav" aria-label="Site">
+    {compact && <a href="/" class="post-chrome">← Briefs</a>}
+    <a href="/rss.xml">RSS</a>
+    <a href="https://scanner.money">App ↗</a>
+  </nav>
+</header>

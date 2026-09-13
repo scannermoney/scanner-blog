@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import SiteHeader from '../../../components/SiteHeader.astro';
+import { getPublishedBriefs } from '../../../lib/briefs';
+import type { Brief } from '../../../lib/briefs';
+
+export function getStaticPaths() {
+  return getPublishedBriefs().map((brief) => ({
+    params: { date: brief.date, slug: brief.slug },
+    props: { brief },
+  }));
+}
+
+interface Props {
+  brief: Brief;
+}
+
+const { brief } = Astro.props;
+---
+<BaseLayout
+  title={`${brief.title} · scanner.money`}
+  description={brief.description}
+  canonicalPath={brief.href}
+  ogImage={brief.ogImageHref}
+  ogType="article"
+>
+  <Fragment slot="head">
+    <meta property="article:published_time" content={`${brief.date}T12:00:00Z`} />
+    <Fragment set:html={`<style>${brief.packageStyles}</style>`} />
+  </Fragment>
+  <SiteHeader compact />
+  <div class="brief-doc" set:html={brief.bodyHtml} />
+</BaseLayout>
