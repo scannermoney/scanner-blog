@@ -4,7 +4,8 @@ import { fileURLToPath } from 'node:url';
 import type { IncomingMessage, ServerResponse } from 'node:http';
 import type { AstroIntegration } from 'astro';
 
-const DATE_DIR = /^\d{4}-\d{2}-\d{2}$/;
+const DATE_DIR = /^(\d{4}-\d{2}-\d{2})(?:-[a-z0-9]+)?$/;
+const DATE_ONLY = /^\d{4}-\d{2}-\d{2}$/;
 
 const MIME: Record<string, string> = {
   '.png': 'image/png',
@@ -60,12 +61,13 @@ export function loadBriefMetas(cwd = process.cwd()): BriefMeta[] {
       throw new Error(`Invalid brief meta at ${metaPath}: slug and title are required`);
     }
 
-    let date = data.date || entry.name;
-    if (date !== entry.name) {
+    const folderMatch = entry.name.match(DATE_DIR);
+    const folderDate = folderMatch?.[1] ?? entry.name;
+    let date = typeof data.date === 'string' && DATE_ONLY.test(data.date) ? data.date : folderDate;
+    if (data.date && data.date !== date) {
       console.warn(
-        `[briefs] folder ${entry.name} does not match meta.date ${date}; using folder name for URL`,
+        `[briefs] folder ${entry.name} has invalid meta.date ${data.date}; using ${date} for URL`,
       );
-      date = entry.name;
     }
 
     briefs.push({

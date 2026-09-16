@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#0c1017" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <title>$canner.money — Crypto Brief · Wed 16 Sep 2026</title>
+  <meta name="description" content="Clarity cloture fails 49–50; BTC soft into FOMC. Holdcash until the statement and path are clear." />
+  <meta name="application-name" content="$canner.money" />
+  <style>
+:root {
+  color-scheme: dark;
+  --bg: #0c1017;
+  --surface: #151b26;
+  --elev: #10151e;
+  --panel: #0f141c;
+  --ink: #e8eef6;
+  --muted: #9aa6b8;
+  --dim: #6e7a8c;
+  --line: #243041;
+  --line-soft: #1c2433;
+  --blue: #3b82f6;
+  --blue-dim: rgba(59, 130, 246, 0.14);
+  --blue-border: rgba(59, 130, 246, 0.38);
+  --bull: #34d399;
+  --bull-dim: rgba(52, 211, 153, 0.12);
+  --bear: #f87171;
+  --bear-dim: rgba(248, 113, 113, 0.12);
+  --radius: 14px;
+  --card-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+  --glow-1: rgba(59, 130, 246, 0.14);
+  --glow-2: rgba(52, 211, 153, 0.08);
+  --max: 760px;
+  --font: "Source Sans 3", system-ui, sans-serif;
+  --display: "Bricolage Grotesque", "Source Sans 3", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+* { box-sizing: border-box; }
+html { color-scheme: dark; }
+body {
+  margin: 0;
+  color: var(--ink);
+  font: 16px/1.65 var(--font);
+  background:
+    radial-gradient(900px 420px at 10% -10%, var(--glow-1), transparent 55%),
+    radial-gradient(700px 380px at 100% 0%, var(--glow-2), transparent 50%),
+    var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+.wrap {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 28px 18px 56px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  text-decoration: none;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.08rem;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+}
+.logo img { width: 32px; height: 32px; object-fit: contain; flex-shrink: 0; }
+.date-line {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--dim);
+  margin: 0 0 12px;
+}
+h1 {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(1.45rem, 4vw, 1.9rem);
+  line-height: 1.2;
+  margin: 0 0 12px;
+  letter-spacing: -0.03em;
+}
+.lede {
+  color: var(--muted);
+  margin: 0 0 28px;
+  max-width: 62ch;
+}
+.lede p { margin: 0; }
+.beat {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+  padding: 20px 18px 18px;
+  margin: 0 0 18px;
+}
+.beat-head {
+  margin: 0 0 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.beat-n {
+  display: block;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--blue);
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+.beat h2 {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.15rem;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+.slots { display: grid; gap: 14px; }
+.slot {
+  background: var(--elev);
+  border: 1px solid var(--line-soft);
+  border-radius: 12px;
+  padding: 14px 14px 12px;
+}
+.slot h3 {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin: 0 0 8px;
+}
+.slot p {
+  margin: 0;
+  color: var(--ink);
+  max-width: 62ch;
+}
+.slot p + p { margin-top: 10px; }
+.slot .muted { color: var(--muted); }
+.slot.action {
+  border-color: var(--blue-border);
+  background: linear-gradient(180deg, #172033 0%, var(--elev) 100%);
+}
+.slot.action h3 { color: var(--blue); }
+.badge {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border-radius: 999px;
+  margin: 0 0 10px;
+  border: 1px solid transparent;
+}
+.badge.bull { background: var(--bull-dim); color: var(--bull); border-color: rgba(52,211,153,.3); }
+.badge.bear { background: var(--bear-dim); color: var(--bear); border-color: rgba(248,113,113,.3); }
+.facts {
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--ink);
+  margin: 0 0 12px;
+}
+.facts strong { font-weight: 600; color: var(--muted); }
+.up { color: var(--bull); }
+.down { color: var(--bear); }
+.chart-frame {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.chart-frame img {
+  width: 100%;
+  object-fit: contain;
+  background: var(--panel);
+}
+figcaption {
+  margin-top: 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--dim);
+}
+.rule {
+  background: linear-gradient(180deg, #172033 0%, var(--elev) 100%);
+  border: 1px solid var(--blue-border);
+  border-radius: var(--radius);
+  padding: 18px 16px;
+  box-shadow: var(--card-shadow);
+  margin: 0 0 18px;
+}
+.rule .rule-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin: 0 0 8px;
+}
+.rule h2 {
+  margin: 0 0 8px;
+  font-size: 1.25rem;
+  font-family: var(--display);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.rule p { margin: 0; color: var(--muted); max-width: 62ch; }
+.sources {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  box-shadow: var(--card-shadow);
+}
+.sources h2 {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin: 0 0 10px;
+}
+.sources ul { margin: 0; padding: 0; list-style: none; }
+.sources li {
+  position: relative;
+  padding: 7px 0 7px 14px;
+  border-bottom: 1px solid var(--line-soft);
+  color: var(--muted);
+  font-size: 13px;
+}
+.sources li:last-child { border-bottom: 0; }
+.sources li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 14px;
+  width: 6px; height: 6px;
+  border-radius: 1px;
+  background: var(--blue);
+}
+.sources a { color: var(--blue); text-decoration: none; word-break: break-all; }
+.sources a:hover { text-decoration: underline; }
+.footer {
+  margin-top: 24px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line-soft);
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--dim);
+}
+@media print {
+  body { background: #fff; color: #111; }
+  .beat, .rule, .sources { break-inside: avoid; box-shadow: none; background: #fff; border-color: #ccc; }
+  .up, .badge.bull { color: #059669; }
+  .down, .badge.bear { color: #dc2626; }
+  .beat-n, .slot.action h3, .rule .rule-label, .sources a { color: #2563eb; }
+}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="brand">
+      <a class="logo" href="https://scanner.money">
+        <img src="assets/logo-256.png" width="32" height="32" alt="" />
+        <span>$canner.money</span>
+      </a>
+    </header>
+
+    <p class="date-line">Crypto brief · Wednesday 16 September 2026</p>
+    <h1>Clarity fails; crypto soft into FOMC</h1>
+    <div class="lede">
+      <p>
+        Tuesday’s Senate cloture vote on the Clarity Act failed 49–50. Overnight crypto stayed soft
+        into Wednesday’s Fed decision at 20:00 Zurich. As of early Wednesday, BTC sat near $75.7k
+        and ETH near $2.4k with Fear &amp; Greed back at Neutral. The hike is largely priced. The
+        path after it is not. Until the statement and projections are clear, the rule stays holdcash.
+      </p>
+    </div>
+
+    <article class="beat">
+      <div class="beat-head">
+        <span class="beat-n">01</span>
+        <h2>Clarity cloture fails; crypto equities hit</h2>
+      </div>
+      <div class="slots">
+        <div class="slot">
+          <h3>What happened</h3>
+          <p>
+            On Tuesday 15 September, the U.S. Senate rejected cloture on the motion to proceed to
+            H.R. 3633 (Clarity Act). The roll call was YEAs 49, NAYs 50, Not Voting 1 — short of the
+            60 votes needed. Coinbase and Circle each fell about 9% on the failure. Into early
+            Wednesday, majors stayed under pressure: BTC about $75,685 (−2.7% 24h), ETH about $2,396
+            (−4.6% 24h), and global crypto market cap about $2.67T (−3.3%). Fear &amp; Greed slipped
+            to 51 Neutral from 69 Greed the prior day. Reports also noted a brief dip near $75k with
+            a bounce toward the mid-$76ks into Fed day.
+          </p>
+        </div>
+        <div class="slot">
+          <h3>What it means</h3>
+          <p class="muted">
+            Near-term U.S. market-structure legislation is stalled. That lands hardest on listed
+            crypto proxies — Coinbase (COIN) and Circle (CRCL) — and keeps risk appetite muted for
+            majors while the Fed prints. Monday’s bounce toward the high-$78ks had already faded;
+            Tuesday’s vote and Fed-week positioning finished the soft turn into decision day.
+          </p>
+        </div>
+        <div class="slot">
+          <h3>Chart and trend facts</h3>
+          <p class="muted">
+            Majors are consolidating under this month’s highs after the failed bounce. Event risk
+            into the Fed statement and SEPs sits on top of that structure. No fresh weekly flip
+            prints are claimed here.
+          </p>
+        </div>
+        <div class="slot action">
+          <h3>What to do</h3>
+          <p>
+            Sit in cash into the decision. Do not invent a Clarity-relief entry from overnight
+            softness with the Fed still hours away.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <article class="beat">
+      <div class="beat-head">
+        <span class="beat-n">02</span>
+        <h2>BTC and ETH structure into the statement</h2>
+      </div>
+      <div class="slots">
+        <div class="slot">
+          <h3>What happened</h3>
+          <p>
+            As of early Wednesday, BTC was about $75,685 (−2.7% on the day) and ETH about $2,396
+            (−4.6%). The tape into Fed day showed a brief probe near $75k and a bounce toward the
+            mid-$76ks — not a clean reclaim of this month’s highs. Markets still price roughly a
+            90–95% chance of a 25 bp hike, with the decision and SEPs due around 14:00 ET / 20:00 Zurich.
+            Equities context remains tight: 10-year near 5% and oil elevated.
+          </p>
+        </div>
+        <div class="slot">
+          <h3>What it means</h3>
+          <p class="muted">
+            BTC and ETH are in an event window, not a fresh trend day. Holders of existing structure
+            should respect that structure; new risk into the print is optional, not required. A
+            Neutral Fear &amp; Greed reading after a Greed print is consistent with de-risking, not
+            with chasing the bounce.
+          </p>
+        </div>
+        <div class="slot">
+          <h3>Chart and trend facts</h3>
+          <p class="muted">
+            Majors remain consolidating under this month’s highs after Monday’s fade and Tuesday’s
+            Clarity soft tape. Structure into the statement: respect existing levels; do not invent
+            flip prices ahead of the print.
+          </p>
+          <figure>
+            <div class="chart-frame">
+              <img src="charts/2026-09-16-btc.png" width="1200" height="675" alt="Bitcoin (BTC) chart — Wed 16 Sep 2026 into FOMC" />
+            </div>
+            <figcaption>BTC · daily · COINBASE:BTCUSD · TradingView · into FOMC · early Wed near $75.7k</figcaption>
+          </figure>
+        </div>
+        <div class="slot action">
+          <h3>What to do</h3>
+          <p>
+            If you already hold a confirmed structure, hold it and respect that structure. If you
+            do not, sit in cash. Holdcash through the statement, the SEPs, and the first reaction —
+            that is when the path updates the regime.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <div class="rule">
+      <p class="rule-label">Rule of the day</p>
+      <h2>holdcash</h2>
+      <p>
+        Clarity cloture failed and majors are soft into FOMC decision day. Hold existing structure
+        and respect it, or sit in cash. Protect attention for the statement and the path — that is
+        when the regime can update.
+      </p>
+    </div>
+
+    <section class="sources">
+      <h2>Sources</h2>
+      <ul>
+        <li><a href="https://www.senate.gov/legislative/LIS/roll_call_votes/vote1192/vote_119_2_00234.htm">U.S. Senate — Roll Call Vote 234 (cloture on motion to proceed to H.R. 3633)</a></li>
+        <li><a href="https://www.coindesk.com/policy/2026/09/15/crypto-clarity-act-flames-out-in-failed-u-s-senate-vote">CoinDesk — Clarity Act Senate cloture fails</a></li>
+        <li><a href="https://www.coindesk.com/markets/2026/09/15/crypto-stocks-sink-after-senate-rejects-clarity-act">CoinDesk — crypto equities after Clarity vote</a></li>
+        <li><a href="https://www.coingecko.com/">CoinGecko — early Wednesday 16 Sep 2026 market wrap levels</a></li>
+        <li><a href="https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm">Federal Reserve — FOMC calendars</a></li>
+      </ul>
+    </section>
+
+    <footer class="footer">
+      $canner.money · crypto brief · 2026-09-16 · not financial advice · English
+    </footer>
+  </div>
+</body>
+</html>
