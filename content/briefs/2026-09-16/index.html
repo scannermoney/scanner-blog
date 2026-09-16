@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#0c1017" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <title>$canner.money — Daily Brief · Wed 16 Sep 2026</title>
+  <meta name="description" content="FOMC decision day after two red sessions. Yields at 5%, Brent above $108. Holdcash until the statement and path are clear." />
+  <meta name="application-name" content="$canner.money" />
+  <style>
+:root {
+  color-scheme: dark;
+  --bg: #0c1017;
+  --surface: #151b26;
+  --elev: #10151e;
+  --panel: #0f141c;
+  --ink: #e8eef6;
+  --muted: #9aa6b8;
+  --dim: #6e7a8c;
+  --line: #243041;
+  --line-soft: #1c2433;
+  --blue: #3b82f6;
+  --blue-dim: rgba(59, 130, 246, 0.14);
+  --blue-border: rgba(59, 130, 246, 0.38);
+  --bull: #34d399;
+  --bull-dim: rgba(52, 211, 153, 0.12);
+  --bear: #f87171;
+  --bear-dim: rgba(248, 113, 113, 0.12);
+  --radius: 14px;
+  --card-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+  --glow-1: rgba(59, 130, 246, 0.14);
+  --glow-2: rgba(52, 211, 153, 0.08);
+  --max: 760px;
+  --font: "Source Sans 3", system-ui, sans-serif;
+  --display: "Bricolage Grotesque", "Source Sans 3", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+* { box-sizing: border-box; }
+html { color-scheme: dark; }
+body {
+  margin: 0;
+  color: var(--ink);
+  font: 16px/1.65 var(--font);
+  background:
+    radial-gradient(900px 420px at 10% -10%, var(--glow-1), transparent 55%),
+    radial-gradient(700px 380px at 100% 0%, var(--glow-2), transparent 50%),
+    var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+.wrap {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 28px 18px 56px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  text-decoration: none;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.08rem;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+}
+.logo img { width: 32px; height: 32px; object-fit: contain; flex-shrink: 0; }
+.date-line {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--dim);
+  margin: 0 0 12px;
+}
+h1 {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(1.45rem, 4vw, 1.9rem);
+  line-height: 1.2;
+  margin: 0 0 12px;
+  letter-spacing: -0.03em;
+}
+.lede {
+  color: var(--muted);
+  margin: 0 0 28px;
+  max-width: 62ch;
+}
+.lede p { margin: 0; }
+.beat {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+  padding: 20px 18px 18px;
+  margin: 0 0 18px;
+}
+.beat-head {
+  margin: 0 0 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.beat-n {
+  display: block;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--blue);
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+.beat h2 {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.15rem;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+.slots { display: grid; gap: 14px; }
+.slot {
+  background: var(--elev);
+  border: 1px solid var(--line-soft);
+  border-radius: 12px;
+  padding: 14px 14px 12px;
+}
+.slot h3 {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin: 0 0 8px;
+}
+.slot p {
+  margin: 0;
+  color: var(--ink);
+  max-width: 62ch;
+}
+.slot p + p { margin-top: 10px; }
+.slot .muted { color: var(--muted); }
+.slot.action {
+  border-color: var(--blue-border);
+  background: linear-gradient(180deg, #172033 0%, var(--elev) 100%);
+}
+.slot.action h3 { color: var(--blue); }
+.badge {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border-radius: 999px;
+  margin: 0 0 10px;
+  border: 1px solid transparent;
+}
+.badge.bull { background: var(--bull-dim); color: var(--bull); border-color: rgba(52,211,153,.3); }
+.facts {
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--ink);
+  margin: 0 0 12px;
+}
+.facts strong { font-weight: 600; color: var(--muted); }
+.up { color: var(--bull); }
+.chart-frame {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.chart-frame img {
+  width: 100%;
+  object-fit: contain;
+  background: var(--panel);
+}
+figcaption {
+  margin-top: 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--dim);
+}
+.rule {
+  background: linear-gradient(180deg, #172033 0%, var(--elev) 100%);
+  border: 1px solid var(--blue-border);
+  border-radius: var(--radius);
+  padding: 18px 16px;
+  box-shadow: var(--card-shadow);
+  margin: 0 0 18px;
+}
+.rule .rule-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin: 0 0 8px;
+}
+.rule h2 {
+  margin: 0 0 8px;
+  font-size: 1.25rem;
+  font-family: var(--display);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.rule p { margin: 0; color: var(--muted); max-width: 62ch; }
+.footer {
+  margin-top: 24px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line-soft);
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--dim);
+}
+@media print {
+  body { background: #fff; color: #111; }
+  .beat, .rule { break-inside: avoid; box-shadow: none; background: #fff; border-color: #ccc; }
+  .up, .badge.bull { color: #059669; }
+  .beat-n, .slot.action h3, .rule .rule-label { color: #2563eb; }
+}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="brand">
+      <a class="logo" href="https://scanner.money">
+        <img src="assets/logo-256.png" width="32" height="32" alt="" />
+        <span>$canner.money</span>
+      </a>
+    </header>
+
+    <p class="date-line">Daily brief · Wednesday 16 September 2026</p>
+    <h1>FOMC decision day with yields at five</h1>
+    <div class="lede">
+      <p>
+        Tuesday extended Monday’s cash selloff as the 10-year touched five percent and Brent
+        settled above $108. Wednesday futures are only slightly higher into the Fed decision at
+        20:00 Zurich. The hike is largely priced. The path after it is not. Until the statement
+        and projections are clear, the rule stays holdcash.
+      </p>
+    </div>
+
+    <article class="beat">
+      <div class="beat-head">
+        <span class="beat-n">01</span>
+        <h2>Two red sessions; futures quiet into the print</h2>
+      </div>
+      <div class="slots">
+        <div class="slot">
+          <h3>What happened</h3>
+          <p>
+            Tuesday cash closed lower again. The Dow finished at 52,093.11 (−0.63%), the S&amp;P 500
+            at 7,585.73 (−0.45%), and the Nasdaq Composite at 25,981.57 (−0.78%). The 10-year yield
+            touched about 5.041% intraday — the highest since July 2007 — and settled near 5%.
+            Brent settled above $108 a barrel, with WTI still above roughly $100. Wednesday
+            premarket, Dow futures sat near 52,200 (+0.16%), S&amp;P futures near 7,601.50 (+0.16%),
+            and Nasdaq futures near 28,991. Markets still price roughly a 90–95% chance of a 25 bp
+            hike to 3.75–4.00%, with the decision and SEPs due around 14:00 ET.
+          </p>
+        </div>
+        <div class="slot">
+          <h3>What it means</h3>
+          <p class="muted">
+            A tiny futures bounce after two down sessions is not a regime change. Yields at five
+            and oil above $108 keep duration and crowded growth under pressure into the press
+            conference. Names already in long weekly trends — Micron (MU), Bloom Energy (BE),
+            Seagate (STX), Dell (DELL), and Siemens Energy (ENR.DE) — do not need a fresh entry
+            before the path is clear. Credit-sensitive AI and hardware betas remain the most
+            exposed if dots or guidance lean hawkish.
+          </p>
+        </div>
+        <div class="slot">
+          <h3>Chart and trend facts</h3>
+          <p class="muted">
+            Last completed weekly scan remains Sunday 13 September. Those prints still show the
+            same bullish weekly cluster above flip. Two cash sessions of pressure stressed holders
+            of that group; the weekly flip prints have not been refreshed.
+          </p>
+        </div>
+        <div class="slot action">
+          <h3>What to do</h3>
+          <p>
+            Sit in cash unless you already hold a confirmed weekly trend. Do not invent a Wednesday
+            morning entry from a flat futures open with the decision still hours away.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <article class="beat">
+      <div class="beat-head">
+        <span class="beat-n">02</span>
+        <h2>Micron cluster still bullish on last weekly prints</h2>
+      </div>
+      <div class="slots">
+        <div class="slot">
+          <h3>What happened</h3>
+          <p>
+            Two sessions of cash weakness and a yield spike into five percent put more pressure on
+            holders of the weekly hardware cluster. The last completed weekly scan still lists
+            Micron as a clear long weekly bull trend. That flip print has not been updated since
+            Sunday 13 September.
+          </p>
+        </div>
+        <div class="slot">
+          <h3>What it means</h3>
+          <p class="muted">
+            Fed-day noise can shake holders who bought the story instead of the flip. If MU, BE,
+            STX, DELL, or ENR.DE are already held as confirmed weekly trends, the job is to respect
+            the flip — not to average down into the decision window.
+          </p>
+        </div>
+        <div class="slot">
+          <h3>Chart and trend facts</h3>
+          <span class="badge bull">Bullish · MU · weekly</span>
+          <p class="facts">
+            <strong>Status:</strong> bullish<br />
+            <strong>Last:</strong> $975.26<br />
+            <strong>Flip:</strong> $725.13<br />
+            <strong>Since flip:</strong> <span class="up">+743.65%</span> · 65 weeks
+          </p>
+          <p class="muted">
+            Related weekly trends from the same completed scan, facts only:
+            ENR.DE at €144.26 (flip €133.95, +951.07%, 137 weeks);
+            BE at $275.75 (flip $166.43, +703.00%, 59 weeks);
+            STX at $830.17 (flip $765.77, +670.17%, 69 weeks);
+            DELL at $567.29 (flip $333.74, +274.15%, 26 weeks).
+          </p>
+          <figure>
+            <div class="chart-frame">
+              <img src="charts/2026-09-16-mu.png" width="1200" height="675" alt="Micron Technology Inc. (MU) weekly chart — bullish, last $975.26, flip $725.13" />
+            </div>
+            <figcaption>MU · weekly · last $975.26 · flip $725.13 · bullish · scan 13 Sep</figcaption>
+          </figure>
+        </div>
+        <div class="slot action">
+          <h3>What to do</h3>
+          <p>
+            If you already hold a weekly bull trend in Micron or the related cluster, hold it and
+            respect the flip. If you do not hold it, sit in cash. No FOMO into a quiet futures tape
+            ahead of the 20:00 Zurich decision.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <div class="rule">
+      <p class="rule-label">Rule of the day</p>
+      <h2>holdcash</h2>
+      <p>
+        FOMC decision day after two red sessions, with yields at five and oil above $108, is not a
+        green light to chase. Hold existing weekly trends and respect the flip, or sit in cash.
+        Protect attention for the statement, the SEPs, and the press conference — that is when the
+        path updates the regime.
+      </p>
+    </div>
+
+    <footer class="footer">
+      $canner.money · daily brief · 2026-09-16 · not financial advice · English
+    </footer>
+  </div>
+</body>
+</html>
