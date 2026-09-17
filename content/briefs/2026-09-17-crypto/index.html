@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#0c1017" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <title>$canner.money — Crypto Brief · Thu 17 Sep 2026</title>
+  <meta name="description" content="Hawkish Fed hike absorbed; BTC holds the $75k floor while SOL leads a muted rebound. Holdcash — digestion, not a breakout." />
+  <meta name="application-name" content="$canner.money" />
+  <style>
+:root {
+  color-scheme: dark;
+  --bg: #0c1017;
+  --surface: #151b26;
+  --elev: #10151e;
+  --panel: #0f141c;
+  --ink: #e8eef6;
+  --muted: #9aa6b8;
+  --dim: #6e7a8c;
+  --line: #243041;
+  --line-soft: #1c2433;
+  --blue: #3b82f6;
+  --blue-dim: rgba(59, 130, 246, 0.14);
+  --blue-border: rgba(59, 130, 246, 0.38);
+  --bull: #34d399;
+  --bull-dim: rgba(52, 211, 153, 0.12);
+  --bear: #f87171;
+  --bear-dim: rgba(248, 113, 113, 0.12);
+  --radius: 14px;
+  --card-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+  --glow-1: rgba(59, 130, 246, 0.14);
+  --glow-2: rgba(52, 211, 153, 0.08);
+  --max: 760px;
+  --font: "Source Sans 3", system-ui, sans-serif;
+  --display: "Bricolage Grotesque", "Source Sans 3", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+* { box-sizing: border-box; }
+html { color-scheme: dark; }
+body {
+  margin: 0;
+  color: var(--ink);
+  font: 16px/1.65 var(--font);
+  background:
+    radial-gradient(900px 420px at 10% -10%, var(--glow-1), transparent 55%),
+    radial-gradient(700px 380px at 100% 0%, var(--glow-2), transparent 50%),
+    var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+.wrap {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 28px 18px 56px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  text-decoration: none;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.08rem;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+}
+.logo img { width: 32px; height: 32px; object-fit: contain; flex-shrink: 0; }
+.date-line {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--dim);
+  margin: 0 0 12px;
+}
+h1 {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(1.45rem, 4vw, 1.9rem);
+  line-height: 1.2;
+  margin: 0 0 12px;
+  letter-spacing: -0.03em;
+}
+.lede {
+  color: var(--muted);
+  margin: 0 0 28px;
+  max-width: 62ch;
+}
+.lede p { margin: 0; }
+.beat {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+  padding: 20px 18px 18px;
+  margin: 0 0 18px;
+}
+.beat-head {
+  margin: 0 0 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.beat-n {
+  display: block;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--blue);
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+.beat h2 {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.15rem;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+.slots { display: grid; gap: 14px; }
+.slot {
+  background: var(--elev);
+  border: 1px solid var(--line-soft);
+  border-radius: 12px;
+  padding: 14px 14px 12px;
+}
+.slot h3 {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin: 0 0 8px;
+}
+.slot p {
+  margin: 0;
+  color: var(--ink);
+  max-width: 62ch;
+}
+.slot p + p { margin-top: 10px; }
+.slot .muted { color: var(--muted); }
+.slot.action {
+  border-color: var(--blue-border);
+  background: linear-gradient(180deg, #172033 0%, var(--elev) 100%);
+}
+.slot.action h3 { color: var(--blue); }
+.badge {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border-radius: 999px;
+  margin: 0 0 10px;
+  border: 1px solid transparent;
+}
+.badge.bull { background: var(--bull-dim); color: var(--bull); border-color: rgba(52,211,153,.3); }
+.badge.bear { background: var(--bear-dim); color: var(--bear); border-color: rgba(248,113,113,.3); }
+.facts {
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--ink);
+  margin: 0 0 12px;
+}
+.facts strong { font-weight: 600; color: var(--muted); }
+.up { color: var(--bull); }
+.down { color: var(--bear); }
+.chart-frame {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.chart-frame img {
+  width: 100%;
+  object-fit: contain;
+  background: var(--panel);
+}
+figcaption {
+  margin-top: 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--dim);
+}
+.rule {
+  background: linear-gradient(180deg, #172033 0%, var(--elev) 100%);
+  border: 1px solid var(--blue-border);
+  border-radius: var(--radius);
+  padding: 18px 16px;
+  box-shadow: var(--card-shadow);
+  margin: 0 0 18px;
+}
+.rule .rule-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin: 0 0 8px;
+}
+.rule h2 {
+  margin: 0 0 8px;
+  font-size: 1.25rem;
+  font-family: var(--display);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.rule p { margin: 0; color: var(--muted); max-width: 62ch; }
+.sources {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  box-shadow: var(--card-shadow);
+}
+.sources h2 {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin: 0 0 10px;
+}
+.sources ul { margin: 0; padding: 0; list-style: none; }
+.sources li {
+  position: relative;
+  padding: 7px 0 7px 14px;
+  border-bottom: 1px solid var(--line-soft);
+  color: var(--muted);
+  font-size: 13px;
+}
+.sources li:last-child { border-bottom: 0; }
+.sources li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 14px;
+  width: 6px; height: 6px;
+  border-radius: 1px;
+  background: var(--blue);
+}
+.sources a { color: var(--blue); text-decoration: none; word-break: break-all; }
+.sources a:hover { text-decoration: underline; }
+.footer {
+  margin-top: 24px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line-soft);
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--dim);
+}
+@media print {
+  body { background: #fff; color: #111; }
+  .beat, .rule, .sources { break-inside: avoid; box-shadow: none; background: #fff; border-color: #ccc; }
+  .up, .badge.bull { color: #059669; }
+  .down, .badge.bear { color: #dc2626; }
+  .beat-n, .slot.action h3, .rule .rule-label, .sources a { color: #2563eb; }
+}
+</style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header class="brand">
+      <a class="logo" href="https://scanner.money">
+        <img src="assets/logo-256.png" width="32" height="32" alt="" />
+        <span>$canner.money</span>
+      </a>
+    </header>
+
+    <p class="date-line">Crypto brief · Thursday 17 September 2026</p>
+    <h1>Hawkish hike absorbed; SOL leads a muted rebound</h1>
+    <div class="lede">
+      <p>
+        The Fed delivered a unanimous 25 bp hike to 3.75%–4.00% — the first since 2023 — and the
+        dots still lean tight. Crypto did not break. BTC held the $75k floor and recovered into
+        the mid-$76ks; ETH and SOL led the bounce. Fear &amp; Greed sits at Neutral 50. That is
+        digestion of a priced-in move against a higher-for-longer path — not a clean breakout.
+        The rule stays holdcash.
+      </p>
+    </div>
+
+    <article class="beat">
+      <div class="beat-head">
+        <span class="beat-n">01</span>
+        <h2>Post-FOMC tape: floor held, equities still soft</h2>
+      </div>
+      <div class="slots">
+        <div class="slot">
+          <h3>What happened</h3>
+          <p>
+            Wednesday’s FOMC voted 12–0 to lift the funds target by a quarter point to
+            3.75%–4.00%. The statement and SEPs kept a hawkish tilt — median dots still point to
+            another hike on the 2026 path. Into early Thursday Zurich time, Coinbase 24h stats put
+            BTC near $76.6k after a low at $74.9k and a high at $76.7k; ETH near $2,449 after a
+            $2,366–$2,452 range; SOL near $100 after a $96–$100 range. Fear &amp; Greed printed
+            Neutral at 50 (down from 51 yesterday, well below last week’s 69 Greed). Listed crypto
+            proxies stayed soft on Fed day: COIN closed about $164.51 (−4.4%), with HOOD and MSTR
+            also down.
+          </p>
+        </div>
+        <div class="slot">
+          <h3>What it means</h3>
+          <p class="muted">
+            The quarter point was already in the price. The lasting headwind is opportunity cost —
+            cash and short Treasuries still pay while BTC and ETH do not — and the Clarity failure
+            earlier in the week already did the heavier crypto equity damage. A muted rebound
+            after the print is consistent with de-risked positioning, not with a fresh risk-on
+            regime. COIN and peers remain the cleaner expression of regulatory + rate pressure.
+          </p>
+        </div>
+        <div class="slot">
+          <h3>Chart and trend facts</h3>
+          <p class="muted">
+            BTC defended $75k through the hawkish print and ETF outflow noise. ETH and SOL
+            outperformed on the first bounce. No weekly flip claim is made here — structure is
+            still a post-Clarity, post-hike range, not a confirmed trend day.
+          </p>
+        </div>
+        <div class="slot action">
+          <h3>What to do</h3>
+          <p>
+            Do not chase the first bounce off a priced-in hike. If you already hold confirmed
+            structure, hold it and respect it. If you do not, sit in cash until the range resolves.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <article class="beat">
+      <div class="beat-head">
+        <span class="beat-n">02</span>
+        <h2>SOL leads; majors still inside the range</h2>
+      </div>
+      <div class="slots">
+        <div class="slot">
+          <h3>What happened</h3>
+          <p>
+            On the Coinbase 24h window into Thursday morning, SOL was the relative leader at about
+            $100.11 (+3.3% from the $96.88 open), ETH about $2,449 (+2.3%), and BTC about $76,563
+            (+1.2%). That order — alts first, BTC steadier — fits a short-covering bounce after
+            Tuesday’s Clarity shock and Wednesday’s policy print, not a broad breakout. Spot
+            Bitcoin ETF flows were still an outflow story into the decision window, which kept a
+            lid on follow-through.
+          </p>
+        </div>
+        <div class="slot">
+          <h3>What it means</h3>
+          <p class="muted">
+            Relative strength in SOL and ETH can look inviting after two soft sessions, but the
+            macro regime did not flip bullish overnight. Higher-for-longer dots raise the hurdle
+            for non-yielding risk. Treat outperformance as rotation inside a pressured tape, not
+            as permission to size up without structure.
+          </p>
+        </div>
+        <div class="slot">
+          <h3>Chart and trend facts</h3>
+          <p class="facts">
+            <strong>SOL</strong> last ~$100 · 24h open $96.88 · high $100.16 · low $96<br />
+            <strong>BTC</strong> last ~$76.6k · range $74.9k–$76.7k · floor held<br />
+            <strong>ETH</strong> last ~$2,449 · range $2,366–$2,452<br />
+            <strong>Fear &amp; Greed</strong> 50 Neutral
+          </p>
+          <p class="muted">
+            SOL daily structure shows a bounce off the post-Clarity soft patch, still well below
+            early-September highs. Watch whether strength holds above the round $100 handle or
+            fades back into the mid-$90s with BTC back toward $75k.
+          </p>
+          <figure>
+            <div class="chart-frame">
+              <img src="charts/2026-09-17-sol.png" width="1200" height="675" alt="Solana (SOL) daily chart — Thu 17 Sep 2026 post-FOMC" />
+            </div>
+            <figcaption>SOL · daily · COINBASE:SOLUSD · post-FOMC bounce · early Thu near $100</figcaption>
+          </figure>
+        </div>
+        <div class="slot action">
+          <h3>What to do</h3>
+          <p>
+            Holdcash on new risk. Let the post-hike range prove itself — a clean reclaim above
+            the rebound highs with structure intact is different from a morning bounce. Existing
+            confirmed trends: hold and respect the flip. Almost-setups after a hawkish print do
+            not count.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <div class="rule">
+      <p class="rule-label">Rule of the day</p>
+      <h2>holdcash</h2>
+      <p>
+        Hawkish hike absorbed, floor held, rebound muted. Digestion is not an A+ long. Hold
+        existing confirmed structure or sit in cash — do not invent entries from the first bounce.
+      </p>
+    </div>
+
+    <footer class="footer">
+      $canner.money · crypto brief · 2026-09-17 · not financial advice · English
+    </footer>
+  </div>
+</body>
+</html>
