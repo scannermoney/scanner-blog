@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#0c1017" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <title>$canner.money — Daily Brief · Thu 17 Sep 2026</title>
+  <meta name="description" content="Fed hiked 25 bp to 3.75–4.00% and penciled in another. Dow fell 1.2%; an overnight futures bounce is digestion, not a green light." />
+  <meta name="application-name" content="$canner.money" />
+  <style>
+:root {
+  color-scheme: dark;
+  --bg: #0c1017;
+  --surface: #151b26;
+  --elev: #10151e;
+  --panel: #0f141c;
+  --ink: #e8eef6;
+  --muted: #9aa6b8;
+  --dim: #6e7a8c;
+  --line: #243041;
+  --line-soft: #1c2433;
+  --blue: #3b82f6;
+  --blue-dim: rgba(59, 130, 246, 0.14);
+  --blue-border: rgba(59, 130, 246, 0.38);
+  --bull: #34d399;
+  --bull-dim: rgba(52, 211, 153, 0.12);
+  --bear: #f87171;
+  --bear-dim: rgba(248, 113, 113, 0.12);
+  --radius: 14px;
+  --card-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+  --glow-1: rgba(59, 130, 246, 0.14);
+  --glow-2: rgba(52, 211, 153, 0.08);
+  --max: 760px;
+  --font: "Source Sans 3", system-ui, sans-serif;
+  --display: "Bricolage Grotesque", "Source Sans 3", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+* { box-sizing: border-box; }
+html { color-scheme: dark; }
+body {
+  margin: 0;
+  color: var(--ink);
+  font: 16px/1.65 var(--font);
+  background:
+    radial-gradient(900px 420px at 10% -10%, var(--glow-1), transparent 55%),
+    radial-gradient(700px 380px at 100% 0%, var(--glow-2), transparent 50%),
+    var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+.wrap {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 28px 18px 56px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  text-decoration: none;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.08rem;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+}
+.logo img { width: 32px; height: 32px; object-fit: contain; flex-shrink: 0; }
+.date-line {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--dim);
+  margin: 0 0 12px;
+}
+h1 {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(1.45rem, 4vw, 1.9rem);
+  line-height: 1.2;
+  margin: 0 0 12px;
+  letter-spacing: -0.03em;
+}
+.lede {
+  color: var(--muted);
+  margin: 0 0 28px;
+  max-width: 62ch;
+}
+.lede p { margin: 0; }
+.beat {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+  padding: 20px 18px 18px;
+  margin: 0 0 18px;
+}
+.beat-head {
+  margin: 0 0 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.beat-n {
+  display: block;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--blue);
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+.beat h2 {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.15rem;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+.slots { display: grid; gap: 14px; }
+.slot {
+  background: var(--elev);
+  border: 1px solid var(--line-soft);
+  border-radius: 12px;
+  padding: 14px 14px 12px;
+}
+.slot h3 {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin: 0 0 8px;
+}
+.slot p {
+  margin: 0;
+  color: var(--ink);
+  max-width: 62ch;
+}
+.slot p + p { margin-top: 10px; }
+.slot .muted { color: var(--muted); }
+.slot.action {
+  border-color: var(--blue-border);
+  background: linear-gradient(180deg, #172033 0%, var(--elev) 100%);
+}
+.slot.action h3 { color: var(--blue); }
+.badge {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border-radius: 999px;
+  margin: 0 0 10px;
+  border: 1px solid transparent;
+}
+.badge.bull { background: var(--bull-dim); color: var(--bull); border-color: rgba(52,211,153,.3); }
+.facts {
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--ink);
+  margin: 0 0 12px;
+}
+.facts strong { font-weight: 600; color: var(--muted); }
+.up { color: var(--bull); }
+.chart-frame {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.chart-frame img {
+  width: 100%;
+  object-fit: contain;
+  background: var(--panel);
+}
+figcaption {
+  margin-top: 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--dim);
+}
+.rule {
+  background: linear-gradient(180deg, #172033 0%, var(--elev) 100%);
+  border: 1px solid var(--blue-border);
+  border-radius: var(--radius);
+  padding: 18px 16px;
+  box-shadow: var(--card-shadow);
+  margin: 0 0 18px;
+}
+.rule .rule-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin: 0 0 8px;
+}
+.rule h2 {
+  margin: 0 0 8px;
+  font-size: 1.25rem;
+  font-family: var(--display);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.rule p { margin: 0; color: var(--muted); max-width: 62ch; }
+.footer {
+  margin-top: 24px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line-soft);
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--dim);
+}
+@media print {
+  body { background: #fff; color: #111; }
+  .beat, .rule { break-inside: avoid; box-shadow: none; background: #fff; border-color: #ccc; }
+  .up, .badge.bull { color: #059669; }
+  .beat-n, .slot.action h3, .rule .rule-label { color: #2563eb; }
+}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="brand">
+      <a class="logo" href="https://scanner.money">
+        <img src="assets/logo-256.png" width="32" height="32" alt="" />
+        <span>$canner.money</span>
+      </a>
+    </header>
+
+    <p class="date-line">Daily brief · Thursday 17 September 2026</p>
+    <h1>Hawkish hike, and the dots still lean tight</h1>
+    <div class="lede">
+      <p>
+        The Fed delivered the 25 basis-point hike markets had priced, then made the path the story.
+        Dots still point to another move this year. Cash closed softer, the Dow lost the 52,000
+        handle, and an overnight futures bounce is digestion — not a green light to chase.
+      </p>
+    </div>
+
+    <article class="beat">
+      <div class="beat-head">
+        <span class="beat-n">01</span>
+        <h2>Hike delivered; path keeps the pressure on</h2>
+      </div>
+      <div class="slots">
+        <div class="slot">
+          <h3>What happened</h3>
+          <p>
+            Wednesday’s FOMC raised the federal funds target range by 25 basis points to
+            3.75–4.00%, unanimously. The statement said inflation remains elevated and that the
+            move supports a timelier return to the 2% goal. Updated projections put the median
+            year-end rate near 4.1%, with most officials still seeing another hike later this year.
+            Into the close, the Dow finished at 51,461.90 (−1.21%), the S&amp;P 500 at 7,551.81
+            (−0.45%), and the Nasdaq Composite at 25,978.42 (−0.01%). The 10-year stayed on the 5%
+            handle near 5.00–5.02%. Oil eased: WTI settled near $102.40 and Brent near $105.60–$105.80.
+            Thursday morning in Europe, US equity futures were attempting a rebound after the
+            cash selloff — roughly a few tenths of a percent higher into the Asia handoff, with
+            Nasdaq futures leading the bounce.
+          </p>
+        </div>
+        <div class="slot">
+          <h3>What it means</h3>
+          <p class="muted">
+            The quarter-point print was not the surprise. The hawkish framing and another hike in
+            the dots were. Three sessions of cash pressure into a higher terminal path keep
+            duration and crowded growth on a shorter leash. Micron (MU), Bloom Energy (BE),
+            Seagate (STX), Dell (DELL), and Siemens Energy (ENR.DE) remain the weekly-trend names
+            to watch — not fresh entries on a futures bounce. Credit-sensitive hardware and AI
+            betas stay exposed if speakers keep the “higher for longer” tone alive.
+          </p>
+        </div>
+        <div class="slot">
+          <h3>Chart and trend facts</h3>
+          <p class="muted">
+            Last completed weekly scan remains Sunday 13 September. Those prints still show the
+            same bullish weekly cluster above flip. Wednesday’s decision-day weakness stressed
+            holders of that group; the weekly flip prints have not been refreshed.
+          </p>
+        </div>
+        <div class="slot action">
+          <h3>What to do</h3>
+          <p>
+            Sit in cash unless you already hold a confirmed weekly trend. Do not invent a Thursday
+            morning entry from an overnight futures bounce after a hawkish hike.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <article class="beat">
+      <div class="beat-head">
+        <span class="beat-n">02</span>
+        <h2>Micron cluster still bullish on last weekly prints</h2>
+      </div>
+      <div class="slots">
+        <div class="slot">
+          <h3>What happened</h3>
+          <p>
+            A third soft cash session and a hawkish Fed path put more pressure on holders of the
+            weekly hardware cluster. The last completed weekly scan still lists Micron as a clear
+            long weekly bull trend. That flip print has not been updated since Sunday 13 September.
+          </p>
+        </div>
+        <div class="slot">
+          <h3>What it means</h3>
+          <p class="muted">
+            Path noise after a hike can shake holders who bought the story instead of the flip.
+            If MU, BE, STX, DELL, or ENR.DE are already held as confirmed weekly trends, the job
+            is to respect the flip — not to average down into a digestion bounce.
+          </p>
+        </div>
+        <div class="slot">
+          <h3>Chart and trend facts</h3>
+          <span class="badge bull">Bullish · MU · weekly</span>
+          <p class="facts">
+            <strong>Status:</strong> bullish<br />
+            <strong>Last:</strong> $975.26<br />
+            <strong>Flip:</strong> $725.13<br />
+            <strong>Since flip:</strong> <span class="up">+743.65%</span> · 65 weeks
+          </p>
+          <p class="muted">
+            Related weekly trends from the same completed scan, facts only:
+            ENR.DE at €144.26 (flip €133.95, +951.07%, 137 weeks);
+            BE at $275.75 (flip $166.43, +703.00%, 59 weeks);
+            STX at $830.17 (flip $765.77, +670.17%, 69 weeks);
+            DELL at $567.29 (flip $333.74, +274.15%, 26 weeks).
+          </p>
+          <figure>
+            <div class="chart-frame">
+              <img src="charts/2026-09-17-mu.png" width="1200" height="675" alt="Micron Technology Inc. (MU) weekly chart — bullish, last $975.26, flip $725.13" />
+            </div>
+            <figcaption>MU · weekly · last $975.26 · flip $725.13 · bullish · scan 13 Sep</figcaption>
+          </figure>
+        </div>
+        <div class="slot action">
+          <h3>What to do</h3>
+          <p>
+            If you already hold a weekly bull trend in Micron or the related cluster, hold it and
+            respect the flip. If you do not hold it, sit in cash. No FOMO into a futures rebound
+            the morning after a hawkish FOMC.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <div class="rule">
+      <p class="rule-label">Rule of the day</p>
+      <h2>holdcash</h2>
+      <p>
+        The hike was priced. Another hike in the dots was the message. Three soft cash sessions
+        plus a tight path is not a green light to chase an overnight bounce. Hold existing weekly
+        trends and respect the flip, or sit in cash until the path is digested in cash hours — not
+        just in futures.
+      </p>
+    </div>
+
+    <footer class="footer">
+      $canner.money · daily brief · 2026-09-17 · not financial advice · English
+    </footer>
+  </div>
+</body>
+</html>
