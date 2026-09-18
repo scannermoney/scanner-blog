@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#0c1017" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <title>$canner.money — Crypto Brief · Fri 18 Sep 2026</title>
+  <meta name="description" content="BTC clears $77k as spot BTC ETFs take inflows; ETH ETFs post a third day of outflows. Size — bounce is not permission to add." />
+  <meta name="application-name" content="$canner.money" />
+  <style>
+:root {
+  color-scheme: dark;
+  --bg: #0c1017;
+  --surface: #151b26;
+  --elev: #10151e;
+  --panel: #0f141c;
+  --ink: #e8eef6;
+  --muted: #9aa6b8;
+  --dim: #6e7a8c;
+  --line: #243041;
+  --line-soft: #1c2433;
+  --blue: #3b82f6;
+  --blue-dim: rgba(59, 130, 246, 0.14);
+  --blue-border: rgba(59, 130, 246, 0.38);
+  --bull: #34d399;
+  --bull-dim: rgba(52, 211, 153, 0.12);
+  --bear: #f87171;
+  --bear-dim: rgba(248, 113, 113, 0.12);
+  --radius: 14px;
+  --card-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+  --glow-1: rgba(59, 130, 246, 0.14);
+  --glow-2: rgba(52, 211, 153, 0.08);
+  --max: 760px;
+  --font: "Source Sans 3", system-ui, sans-serif;
+  --display: "Bricolage Grotesque", "Source Sans 3", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+* { box-sizing: border-box; }
+html { color-scheme: dark; }
+body {
+  margin: 0;
+  color: var(--ink);
+  font: 16px/1.65 var(--font);
+  background:
+    radial-gradient(900px 420px at 10% -10%, var(--glow-1), transparent 55%),
+    radial-gradient(700px 380px at 100% 0%, var(--glow-2), transparent 50%),
+    var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+.wrap {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 28px 18px 56px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  text-decoration: none;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.08rem;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+}
+.logo img { width: 32px; height: 32px; object-fit: contain; flex-shrink: 0; }
+.date-line {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--dim);
+  margin: 0 0 12px;
+}
+h1 {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(1.45rem, 4vw, 1.9rem);
+  line-height: 1.2;
+  margin: 0 0 12px;
+  letter-spacing: -0.03em;
+}
+.lede {
+  color: var(--muted);
+  margin: 0 0 28px;
+  max-width: 62ch;
+}
+.lede p { margin: 0; }
+.beat {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+  padding: 20px 18px 18px;
+  margin: 0 0 18px;
+}
+.beat-head {
+  margin: 0 0 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.beat-n {
+  display: block;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--blue);
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+.beat h2 {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.15rem;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+.slots { display: grid; gap: 14px; }
+.slot {
+  background: var(--elev);
+  border: 1px solid var(--line-soft);
+  border-radius: 12px;
+  padding: 14px 14px 12px;
+}
+.slot h3 {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin: 0 0 8px;
+}
+.slot p {
+  margin: 0;
+  color: var(--ink);
+  max-width: 62ch;
+}
+.slot p + p { margin-top: 10px; }
+.slot .muted { color: var(--muted); }
+.slot.action {
+  border-color: var(--blue-border);
+  background: linear-gradient(180deg, #172033 0%, var(--elev) 100%);
+}
+.slot.action h3 { color: var(--blue); }
+.badge {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border-radius: 999px;
+  margin: 0 0 10px;
+  border: 1px solid transparent;
+}
+.badge.bull { background: var(--bull-dim); color: var(--bull); border-color: rgba(52,211,153,.3); }
+.badge.bear { background: var(--bear-dim); color: var(--bear); border-color: rgba(248,113,113,.3); }
+.facts {
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--ink);
+  margin: 0 0 12px;
+}
+.facts strong { font-weight: 600; color: var(--muted); }
+.up { color: var(--bull); }
+.down { color: var(--bear); }
+.chart-frame {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.chart-frame img {
+  width: 100%;
+  object-fit: contain;
+  background: var(--panel);
+}
+figcaption {
+  margin-top: 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--dim);
+}
+.rule {
+  background: linear-gradient(180deg, #172033 0%, var(--elev) 100%);
+  border: 1px solid var(--blue-border);
+  border-radius: var(--radius);
+  padding: 18px 16px;
+  box-shadow: var(--card-shadow);
+  margin: 0 0 18px;
+}
+.rule .rule-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin: 0 0 8px;
+}
+.rule h2 {
+  margin: 0 0 8px;
+  font-size: 1.25rem;
+  font-family: var(--display);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.rule p { margin: 0; color: var(--muted); max-width: 62ch; }
+.sources {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  box-shadow: var(--card-shadow);
+}
+.sources h2 {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin: 0 0 10px;
+}
+.sources ul { margin: 0; padding: 0; list-style: none; }
+.sources li {
+  position: relative;
+  padding: 7px 0 7px 14px;
+  border-bottom: 1px solid var(--line-soft);
+  color: var(--muted);
+  font-size: 13px;
+}
+.sources li:last-child { border-bottom: 0; }
+.sources li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 14px;
+  width: 6px; height: 6px;
+  border-radius: 1px;
+  background: var(--blue);
+}
+.sources a { color: var(--blue); text-decoration: none; word-break: break-all; }
+.sources a:hover { text-decoration: underline; }
+.footer {
+  margin-top: 24px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line-soft);
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--dim);
+}
+@media print {
+  body { background: #fff; color: #111; }
+  .beat, .rule, .sources { break-inside: avoid; box-shadow: none; background: #fff; border-color: #ccc; }
+  .up, .badge.bull { color: #059669; }
+  .down, .badge.bear { color: #dc2626; }
+  .beat-n, .slot.action h3, .rule .rule-label, .sources a { color: #2563eb; }
+}
+</style>
+</head>
+
+
+<body>
+  <div class="wrap">
+    <header class="brand">
+      <a class="logo" href="https://scanner.money">
+        <img src="assets/logo-256.png" width="32" height="32" alt="" />
+        <span>$canner.money</span>
+      </a>
+    </header>
+
+    <p class="date-line">Crypto brief · Friday 18 September 2026</p>
+    <h1>BTC above $77k; ETH ETFs still bleed</h1>
+    <div class="lede">
+      <p>
+        A day after the Fed’s first hike since 2023, crypto moved with the equity relief tape.
+        Bitcoin cleared $77k and spot BTC ETFs flipped to roughly $159 million of net inflows on
+        Thursday. Spot ETH ETFs, by contrast, posted a third straight outflow session of about
+        $39 million even as ether itself rose. Fear &amp; Greed climbed to Greed at 56. That is a
+        bounce with a flow split inside it — size the risk, do not treat the rebound as a clean
+        risk-on flip.
+      </p>
+    </div>
+
+    <article class="beat">
+      <div class="beat-head">
+        <span class="beat-n">01</span>
+        <h2>Relief with a split: BTC inflows, ETH outflows</h2>
+      </div>
+      <div class="slots">
+        <div class="slot">
+          <h3>What happened</h3>
+          <p>
+            Cheaper oil and a pullback in the 10-year yield let stocks and bonds firm after
+            Wednesday’s hike. Crypto followed the same signal rather than leading it. Into early
+            Friday Zurich time, Coinbase 24h stats put BTC near $77.6k after a $75.9k–$77.6k range,
+            ETH near $2,488 after a $2,425–$2,492 range, SOL near $105.5 after a $99.5–$106 range,
+            and XRP near $1.32. According to SoSoValue via CoinDesk, U.S. spot BTC ETFs took in
+            about $159 million on Thursday while spot ETH ETFs lost about $39 million — a third
+            consecutive withdrawal day after roughly $224 million Wednesday and $141 million
+            Tuesday. XRP funds lost about $5 million. Fear &amp; Greed printed 56 Greed, up from
+            Neutral 50 on Thursday’s brief.
+          </p>
+        </div>
+        <div class="slot">
+          <h3>What it means</h3>
+          <p class="muted">
+            Price and flow are not telling the same story across majors. BTC is getting fresh spot
+            ETF demand again after the midweek redemption wave; ETH is still seeing product
+            redemptions even as the token bounces with the tape. That split matters for ETHA and
+            peer ETH ETF holders, for ethereum beta in COIN and related exchanges, and for miners
+            that still trade more like leveraged BTC. A broad token bounce funded by oil-eased risk
+            appetite is not the same as confirmed ETH product demand.
+          </p>
+        </div>
+        <div class="slot">
+          <h3>Chart and trend facts</h3>
+          <p class="muted">
+            BTC reclaimed and held above $77k on the Coinbase window. ETH and SOL outperformed on
+            percentage terms inside the bounce, but ETH’s ETF tape remains an outflow streak.
+            Structure is still post-Clarity, post-hike digestion — not a fresh weekly trend claim.
+          </p>
+        </div>
+        <div class="slot action">
+          <h3>What to do</h3>
+          <p>
+            Treat Thursday’s relief as digestion of a priced-in hike against cheaper oil, not as a
+            green light to add size. Prefer confirmed structure you already hold over chasing the
+            open of a Friday bounce.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <article class="beat">
+      <div class="beat-head">
+        <span class="beat-n">02</span>
+        <h2>ETH featured: price up, product flows still red</h2>
+      </div>
+      <div class="slots">
+        <div class="slot">
+          <h3>What happened</h3>
+          <p>
+            Ether rose about 1.9% on the Coinbase 24h window to roughly $2,488 while its U.S. spot
+            ETFs posted a third day of net outflows (~$39 million Thursday). Bitcoin’s product side
+            flipped the other way with ~$159 million of inflows the same session. Listed crypto
+            proxies participated in Thursday’s equity relief: COIN closed about $173.97 after
+            Wednesday’s $164.51 Fed-day print, MSTR about $132.25, MARA about $11.64, and RIOT about
+            $21.88. SOL led the majors on percentage terms near $105.5 (+~5.5% from the ~$100 open).
+          </p>
+        </div>
+        <div class="slot">
+          <h3>What it means</h3>
+          <p class="muted">
+            For ETH itself, a bounce without matching ETF demand is fragile — redemptions can still
+            press the tape when the equity relief fades. Beneficiaries of a cleaner BTC flow
+            recovery are BTC spot products and BTC-proximate names (MSTR, miners) more than ETH
+            beta. Exchange names like COIN can bounce with volume and risk appetite, but they still
+            carry the Clarity setback and higher-for-longer rate path from earlier this week. Do not
+            read Thursday’s equity rebound as proof that ETH product demand has turned.
+          </p>
+        </div>
+        <div class="slot">
+          <h3>Chart and trend facts</h3>
+          <p class="facts">
+            <strong>ETH</strong> daily · BULLISH · last close $2,447 · flip $2,348<br />
+            <strong>ETH 24h</strong> ~$2,488 · open $2,442 · high $2,492 · low $2,425<br />
+            <strong>BTC</strong> last ~$77.6k · range $75.9k–$77.6k · above $77k<br />
+            <strong>SOL</strong> last ~$105.5 · range $99.5–$106<br />
+            <strong>Fear &amp; Greed</strong> 56 Greed<br />
+            <strong>ETH ETFs</strong> ~−$39M Thu (3rd day) · <strong>BTC ETFs</strong> ~+$159M Thu
+          </p>
+          <p class="muted">
+            ETH daily is labeled BULLISH with the flip at $2,348 and last close $2,447. Price is
+            holding above that flip after the August breakout range. The open risk is that spot ETH
+            ETF redemptions continue while the token rides equity-and-oil beta — a fade back through
+            the flip with BTC losing $77k would argue the bounce was beta, not ETH-specific demand.
+          </p>
+          <figure>
+            <div class="chart-frame">
+              <img src="charts/2026-09-18-eth.png" width="1200" height="675" alt="Ethereum (ETH) daily chart — BULLISH, last close $2,447, flip $2,348" />
+            </div>
+            <figcaption>ETH · daily · BULLISH · last $2,447 · flip $2,348 · Fri 18 Sep 2026</figcaption>
+          </figure>
+        </div>
+        <div class="slot action">
+          <h3>What to do</h3>
+          <p>
+            Size down, not up. If you already hold confirmed ETH or BTC structure, hold it and
+            respect the flip. New risk into a Friday bounce while ETH ETFs are still redeeming is
+            optional — keep size small or wait for flows and price to agree.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <div class="rule">
+      <p class="rule-label">Rule of the day</p>
+      <h2>size</h2>
+      <p>
+        BTC cleared $77k and took ETF inflows; ETH price rose while ETH ETFs bled for a third day.
+        A split tape is not an A+ add. Keep size small — or stay in cash — until price and product
+        flows tell the same story.
+      </p>
+    </div>
+
+    <section class="sources">
+      <h2>Sources</h2>
+      <ul>
+        <li><a href="https://www.coindesk.com/markets/2026/09/18/ether-and-xrp-etfs-post-outflows-as-bitcoin-moves-above-usd77-000">CoinDesk — Ether and XRP ETFs outflows; BTC above $77k</a></li>
+        <li><a href="https://www.blockhead.co/2026/09/18/crypto-stocks-rally-post-rate-hike-zcash-hits-all-time-high/">Blockhead — crypto and stocks rally post-hike</a></li>
+        <li><a href="https://coinedition.com/bitcoin-and-ethereum-etfs-see-520m-outflows-after-fed-rate-hike/">CoinEdition — $520M BTC+ETH ETF outflows after Fed hike</a></li>
+        <li><a href="https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm">Federal Reserve — FOMC statement (16 Sep 2026)</a></li>
+        <li><a href="https://api.exchange.coinbase.com/products/ETH-USD/stats">Coinbase Exchange — ETH-USD 24h stats</a></li>
+        <li><a href="https://api.alternative.me/fng/">Alternative.me — Fear &amp; Greed Index</a></li>
+      </ul>
+    </section>
+
+    <footer class="footer">
+      $canner.money · crypto brief · 2026-09-18 · not financial advice · English
+    </footer>
+  </div>
+</body>
+</html>
