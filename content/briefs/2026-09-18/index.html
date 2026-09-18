@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
   <title>$canner.money — Daily Brief · Fri 18 Sep 2026</title>
-  <meta name="description" content="Thursday tech rebound: Nasdaq +1.69%, chips led with AMD +6.36%. Banks barely recovered. Soft Friday futures into the weekend — hold cash, do not chase." />
+  <meta name="description" content="Thursday’s chip-led relief rally reversed Wednesday’s Fed scare as oil and yields eased. Intel led on CPU scarcity. Friday futures are soft — cooldown, not chase." />
   <meta name="application-name" content="$canner.money" />
   <style>
 :root {
@@ -167,6 +167,7 @@ h1 {
   border: 1px solid transparent;
 }
 .badge.bull { background: var(--bull-dim); color: var(--bull); border-color: rgba(52,211,153,.3); }
+.badge.bear { background: var(--bear-dim); color: var(--bear); border-color: rgba(248,113,113,.3); }
 .facts {
   font-family: var(--mono);
   font-size: 13px;
@@ -218,6 +219,40 @@ figcaption {
   letter-spacing: -0.02em;
 }
 .rule p { margin: 0; color: var(--muted); max-width: 62ch; }
+.sources {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  box-shadow: var(--card-shadow);
+}
+.sources h2 {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin: 0 0 10px;
+}
+.sources ul { margin: 0; padding: 0; list-style: none; }
+.sources li {
+  position: relative;
+  padding: 7px 0 7px 14px;
+  border-bottom: 1px solid var(--line-soft);
+  color: var(--muted);
+  font-size: 13px;
+}
+.sources li:last-child { border-bottom: 0; }
+.sources li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 14px;
+  width: 6px; height: 6px;
+  border-radius: 1px;
+  background: var(--blue);
+}
+.sources a { color: var(--blue); text-decoration: none; word-break: break-all; }
+.sources a:hover { text-decoration: underline; }
 .footer {
   margin-top: 24px;
   padding-top: 14px;
@@ -228,10 +263,10 @@ figcaption {
 }
 @media print {
   body { background: #fff; color: #111; }
-  .beat, .rule { break-inside: avoid; box-shadow: none; background: #fff; border-color: #ccc; }
+  .beat, .rule, .sources { break-inside: avoid; box-shadow: none; background: #fff; border-color: #ccc; }
   .up, .badge.bull { color: #059669; }
-  .down { color: #dc2626; }
-  .beat-n, .slot.action h3, .rule .rule-label { color: #2563eb; }
+  .down, .badge.bear { color: #dc2626; }
+  .beat-n, .slot.action h3, .rule .rule-label, .sources a { color: #2563eb; }
 }
 </style>
 </head>
@@ -244,58 +279,63 @@ figcaption {
       </a>
     </header>
 
-    <p class="date-line">Daily brief · Friday 18 September 2026</p>
-    <h1>Tech bounced; chips led; banks barely moved</h1>
+    <p class="date-line">Premarket brief · Fri 18 Sep 2026</p>
+    <h1>Chip relief after the hike — Friday is cooldown</h1>
     <div class="lede">
       <p>
-        Thursday repaired Wednesday’s hawkish hangover: Nasdaq jumped, semis ripped, and the
-        10-year slipped off the 5% handle. Banks barely budged. Friday’s futures are soft into the
-        weekend — that is a cooldown, not a chase.
+        Cash is closed overnight in Zurich. Thursday delivered the best session in weeks after oil
+        and long yields eased: the Nasdaq rose 1.7% and semiconductors led. Friday equity futures
+        are soft again, so the job is digestion, not chasing Thursday’s winners into the open.
       </p>
     </div>
 
     <article class="beat">
       <div class="beat-head">
         <span class="beat-n">01</span>
-        <h2>Thursday rebound: indexes up, yields and oil ease, banks flat</h2>
+        <h2>Oil and yields eased; chips led the rebound</h2>
       </div>
       <div class="slots">
         <div class="slot">
           <h3>What happened</h3>
           <p>
-            Cash hours reversed Wednesday’s post-FOMC bruise. The Dow closed 51,779.85 (+0.62%),
-            the S&amp;P 500 7,637.74 (+1.14%), and the Nasdaq Composite 26,418.30 (+1.69%). Tech
-            carried the tape. The 10-year eased to about 4.93% after tagging a 5% handle, oil
-            softened, and the VIX printed multi-day lows. Banks only managed roughly +0.2% after
-            Wednesday’s about −2.3% hit — a limp repair next to the index bounce. Nontrivial
-            October hike odds remain priced. Into Friday morning, US equity futures were soft and
-            cautious ahead of the weekend.
+            After Wednesday’s first Fed hike in three years to a 3.75%–4.00% funds target, Thursday
+            cash reversed the scare. Brent settled about 1% lower near $104.82 a barrel, and the
+            10-year Treasury yield slipped to roughly 4.93% from about 5.01% late Wednesday. The
+            Dow closed at 51,778.04 (+0.61%), the S&amp;P 500 at 7,637.76 (+1.14%), and the Nasdaq
+            Composite at 26,418.30 (+1.69%). The Philadelphia Semiconductor Index rose 3.14% to
+            11,599.49, with 29 of 30 constituents higher.
           </p>
         </div>
         <div class="slot">
           <h3>What it means</h3>
           <p class="muted">
-            Digestion after a hawkish 25 bp hike is not the same as a clean risk-on reset. Indexes
-            can rebound while rate-sensitive financials stay stuck — that is exactly what Thursday
-            showed. Soft yields and softer oil helped the multiple, but the still-priced October
-            hike path keeps a lid on how far the bank complex can run. Friday’s cautious futures
-            into a weekend say the market is marking time, not launching a fresh regime.
+            The hike itself was widely expected; what mattered Thursday was the relief channel —
+            softer oil and cooler long yields took pressure off growth duration. Semis and memory
+            reclaimed leadership after earlier AI-spend jitters: Arm about +8.6%, Intel about
+            +7.7%, AMD about +6.4%, SanDisk about +6.2%, Micron about +5.5%, with Nvidia about
+            +2.5% and Broadcom about +2.3%. Foundry and memory supply-chain names moved with the
+            tape (TSMC about +3.0%; storage peers Seagate and Western Digital also green). Rate-
+            sensitive banks that sold hard Wednesday got a quieter digestion day rather than a
+            full mean-reversion sprint. Energy producers face a third session of softer crude into
+            Friday while prices remain above $100, so the inflation-input story is cooler, not
+            closed.
           </p>
         </div>
         <div class="slot">
           <h3>Chart and trend facts</h3>
           <p class="muted">
-            Verified Thursday closes: Dow +0.62%, S&amp;P +1.14%, Nasdaq +1.69%; banks ~+0.2% after
-            Wed ~−2.3%; 10-year ~4.93% after the 5% handle; oil eased; VIX at multi-day lows.
-            October hike odds still nontrivial. Friday morning futures: soft / cautious.
+            Verified Thursday closes only: Dow +0.61%, S&amp;P +1.14%, Nasdaq +1.69%, SOX +3.14%.
+            Early Friday wraps show equity futures modestly red after that bounce, with oil still
+            above $100 but extending losses about 1% in overnight trade. Fed speakers Michelle
+            Bowman and Jeffrey Schmid are on the Friday calendar for more path commentary.
           </p>
         </div>
         <div class="slot action">
           <h3>What to do</h3>
           <p>
-            Treat Thursday as digestion, not a green light. Do not invent a bank bounce entry from
-            a ~+0.2% repair after a −2%-class day. Sit tight into soft Friday futures and the
-            weekend.
+            Treat Thursday as a relief session after the hike, not a green light to add size into
+            a soft Friday futures open. Prefer watching cash hours confirm before scaling chip or
+            growth exposure that already ran hard.
           </p>
         </div>
       </div>
@@ -304,55 +344,64 @@ figcaption {
     <article class="beat">
       <div class="beat-head">
         <span class="beat-n">02</span>
-        <h2>Chips led the rebound — AMD featured on price action</h2>
+        <h2>Intel led on CPU scarcity — watch the chain, not the chase</h2>
       </div>
       <div class="slots">
         <div class="slot">
           <h3>What happened</h3>
           <p>
-            Semiconductors and AI hardware names powered Thursday’s leadership. Super Micro roughly
-            +9.5%, Intel 108.80 (+7.67%), Advanced Micro Devices 545.09 (+6.36%), Micron 977.50
-            (+5.50%), and Nvidia 219.34 (+2.54%). The Nasdaq’s +1.69% was a chip-led story more
-            than a broad equal-weight recovery. Banks’ near-flat session made the sector split
-            obvious: hardware beta healed; rate cyclicals did not.
+            Intel closed Thursday at $108.80, up 7.67%, one of the session’s clearest semiconductor
+            leaders. CEO Lip-Bu Tan said at this week’s AI Infrastructure Summit that Intel is
+            meeting only about half of frontier customer CPU demand as AI agent deployments surge,
+            and that major tech CEOs have called asking for more shipments. Separately, wraps cited
+            exploratory talks between Intel and SK Hynix on U.S. memory manufacturing; SK Hynix
+            confirmed discussions but said no agreement is finalized. Peer tape backed the theme:
+            AMD finished at $545.09 (+6.36%), Arm about +8.6%, and memory names Micron (+5.5% to
+            $977.50) and SanDisk (+6.2%) joined the move.
           </p>
         </div>
         <div class="slot">
           <h3>What it means</h3>
           <p class="muted">
-            After Wednesday’s hawkish presser, buyers stepped back into the AI compute complex —
-            Intel, AMD, Micron, Nvidia, and Super Micro — while leaving banks behind. That is a
-            leadership map for who cleared the digestion session, not a blank check to press every
-            Thursday winner into soft Friday futures and a weekend gap risk. Dispersion still
-            matters: megacap GPU beta (+2.5% Nvidia) lagged the sharper Intel/AMD/Micron moves.
+            The AI stack story is broadening again from GPU pacing debates into CPU scarcity and
+            memory capacity. If Tan’s supply comment holds, beneficiaries sit across the chain —
+            CPU vendors and their equipment partners, HBM and DDR suppliers, and foundry capacity
+            (TSMC’s Thursday gain fits that map). Exploratory Hynix–Intel manufacturing talks are
+            a sentiment boost for domestic memory buildout, not a booked deal. Dispersion still
+            matters: Nvidia’s more modest +2.5% shows leadership rotated toward capacity-
+            constrained CPU and memory names rather than a single mega-cap chase.
           </p>
         </div>
         <div class="slot">
           <h3>Chart and trend facts</h3>
-          <span class="badge bull">Featured · AMD · Thu session</span>
+          <span class="badge bull">Featured · INTC · daily</span>
           <p class="facts">
-            <strong>Name:</strong> Advanced Micro Devices (AMD)<br />
-            <strong>Thu close:</strong> $545.09<br />
-            <strong>Thu change:</strong> <span class="up">+6.36%</span><br />
-            <strong>Role:</strong> AI / CPU-GPU compute beta
+            <strong>Name:</strong> Intel Corp. (INTC)<br />
+            <strong>Status:</strong> CHOPPY<br />
+            <strong>Last close:</strong> $108.80<br />
+            <strong>Thu change:</strong> <span class="up">+7.67%</span><br />
+            <strong>Flip:</strong> $94.50<br />
+            <strong>Role:</strong> CPU supply / AI infrastructure
           </p>
           <p class="muted">
-            Price action only — no weekly flip print is available for AMD here. Peer tape Thursday:
-            SMCI ~+9.5%, INTC +7.67%, MU +5.50%, NVDA +2.54%.
+            Daily chart: price sits above the $94.50 flip while status remains CHOPPY — a strong
+            Thursday candle inside an unfinished regime, not a clean trend label. Peers on the same
+            tape: AMD $545.09 (+6.36%), ARM ~+8.6%, MU $977.50 (+5.50%), SNDK ~+6.2%, NVDA $219.34
+            (+2.54%), SOX +3.14%.
           </p>
           <figure>
             <div class="chart-frame">
-              <img src="charts/2026-09-18-amd.png" width="1200" height="675" alt="Advanced Micro Devices (AMD) daily chart — Thu close $545.09, +6.36%" />
+              <img src="charts/2026-09-18-intc.png" width="1200" height="675" alt="Intel Corp. (INTC) daily chart — CHOPPY, last close $108.80, flip $94.50" />
             </div>
-            <figcaption>AMD · daily · Thu close $545.09 · +6.36% · chips leadership</figcaption>
+            <figcaption>INTC · daily · CHOPPY · last $108.80 · flip $94.50 · Thu +7.67%</figcaption>
           </figure>
         </div>
         <div class="slot action">
           <h3>What to do</h3>
           <p>
-            Map Thursday’s chip strength; do not chase AMD, Intel, Micron, or Super Micro into a
-            soft Friday futures tape and weekend. Prefer cash and confirmation over pressing
-            winners that already ran hard in one session.
+            Map the supply-chain beneficiaries (CPU, memory, foundry, equipment) from Thursday’s
+            tape, but do not chase Intel after a near-8% day into soft Friday futures. Wait for
+            cash confirmation and keep size disciplined if you already hold the theme.
           </p>
         </div>
       </div>
@@ -360,12 +409,24 @@ figcaption {
 
     <div class="rule">
       <p class="rule-label">Rule of the day</p>
-      <h2>holdcash</h2>
+      <h2>cooldown</h2>
       <p>
-        Thursday was a tech-led digestion bounce after a hawkish hike — chips ripped, banks barely
-        moved, and Friday futures are soft into the weekend. Hold cash. Cooldown, not chase.
+        Thursday’s chip relief fixed the overnight scare, not the higher-for-longer path. Oil is
+        cooler but still sticky above $100, and Friday futures are soft. Cool down — do not add
+        size into names that already sprinted.
       </p>
     </div>
+
+    <section class="sources">
+      <h2>Sources</h2>
+      <ul>
+        <li><a href="https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm">Federal Reserve — FOMC calendars</a></li>
+        <li><a href="https://www.tradingkey.com/analysis/stocks/us-stocks/262173915-us-stock-nasdaq-dow-sp500-rise-fed-rate-chip-memory-intel-micron-tradingkey">TradingKey — Thu closes, SOX, chip/memory movers, Intel CPU comments</a></li>
+        <li><a href="https://www.reuters.com/business/energy/oil-prices-fall-1-hopes-limited-supply-disruptions-2026-09-18/">Reuters — oil prices Friday 18 Sep 2026</a></li>
+        <li><a href="https://www.wxxv25.com/us-stocks-rally-to-their-best-day-in-6-weeks-after-oil-prices-and-bond-yields-ease/">AP via WXXV — Thursday index closes and yield/oil relief</a></li>
+        <li><a href="https://stocktwits.com/news-articles/markets/equity/intc-amd-mu-nvda-chip-stocks-rally-as-investors-look-past-ai-concerns/cZtuLZsRBdw">Stocktwits wrap — Intel/SK Hynix exploratory talks context</a></li>
+      </ul>
+    </section>
 
     <footer class="footer">
       $canner.money · daily brief · 2026-09-18 · not financial advice · English
