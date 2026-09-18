@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#0c1017" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <title>$canner.money — Daily Brief · Fri 18 Sep 2026</title>
+  <meta name="description" content="Thursday tech rebound: Nasdaq +1.69%, chips led with AMD +6.36%. Banks barely recovered. Soft Friday futures into the weekend — hold cash, do not chase." />
+  <meta name="application-name" content="$canner.money" />
+  <style>
+:root {
+  color-scheme: dark;
+  --bg: #0c1017;
+  --surface: #151b26;
+  --elev: #10151e;
+  --panel: #0f141c;
+  --ink: #e8eef6;
+  --muted: #9aa6b8;
+  --dim: #6e7a8c;
+  --line: #243041;
+  --line-soft: #1c2433;
+  --blue: #3b82f6;
+  --blue-dim: rgba(59, 130, 246, 0.14);
+  --blue-border: rgba(59, 130, 246, 0.38);
+  --bull: #34d399;
+  --bull-dim: rgba(52, 211, 153, 0.12);
+  --bear: #f87171;
+  --bear-dim: rgba(248, 113, 113, 0.12);
+  --radius: 14px;
+  --card-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+  --glow-1: rgba(59, 130, 246, 0.14);
+  --glow-2: rgba(52, 211, 153, 0.08);
+  --max: 760px;
+  --font: "Source Sans 3", system-ui, sans-serif;
+  --display: "Bricolage Grotesque", "Source Sans 3", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+* { box-sizing: border-box; }
+html { color-scheme: dark; }
+body {
+  margin: 0;
+  color: var(--ink);
+  font: 16px/1.65 var(--font);
+  background:
+    radial-gradient(900px 420px at 10% -10%, var(--glow-1), transparent 55%),
+    radial-gradient(700px 380px at 100% 0%, var(--glow-2), transparent 50%),
+    var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+.wrap {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 28px 18px 56px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  text-decoration: none;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.08rem;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+}
+.logo img { width: 32px; height: 32px; object-fit: contain; flex-shrink: 0; }
+.date-line {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--dim);
+  margin: 0 0 12px;
+}
+h1 {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(1.45rem, 4vw, 1.9rem);
+  line-height: 1.2;
+  margin: 0 0 12px;
+  letter-spacing: -0.03em;
+}
+.lede {
+  color: var(--muted);
+  margin: 0 0 28px;
+  max-width: 62ch;
+}
+.lede p { margin: 0; }
+.beat {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+  padding: 20px 18px 18px;
+  margin: 0 0 18px;
+}
+.beat-head {
+  margin: 0 0 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.beat-n {
+  display: block;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--blue);
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+.beat h2 {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.15rem;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+.slots { display: grid; gap: 14px; }
+.slot {
+  background: var(--elev);
+  border: 1px solid var(--line-soft);
+  border-radius: 12px;
+  padding: 14px 14px 12px;
+}
+.slot h3 {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin: 0 0 8px;
+}
+.slot p {
+  margin: 0;
+  color: var(--ink);
+  max-width: 62ch;
+}
+.slot p + p { margin-top: 10px; }
+.slot .muted { color: var(--muted); }
+.slot.action {
+  border-color: var(--blue-border);
+  background: linear-gradient(180deg, #172033 0%, var(--elev) 100%);
+}
+.slot.action h3 { color: var(--blue); }
+.badge {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border-radius: 999px;
+  margin: 0 0 10px;
+  border: 1px solid transparent;
+}
+.badge.bull { background: var(--bull-dim); color: var(--bull); border-color: rgba(52,211,153,.3); }
+.facts {
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--ink);
+  margin: 0 0 12px;
+}
+.facts strong { font-weight: 600; color: var(--muted); }
+.up { color: var(--bull); }
+.down { color: var(--bear); }
+.chart-frame {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.chart-frame img {
+  width: 100%;
+  object-fit: contain;
+  background: var(--panel);
+}
+figcaption {
+  margin-top: 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--dim);
+}
+.rule {
+  background: linear-gradient(180deg, #172033 0%, var(--elev) 100%);
+  border: 1px solid var(--blue-border);
+  border-radius: var(--radius);
+  padding: 18px 16px;
+  box-shadow: var(--card-shadow);
+  margin: 0 0 18px;
+}
+.rule .rule-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin: 0 0 8px;
+}
+.rule h2 {
+  margin: 0 0 8px;
+  font-size: 1.25rem;
+  font-family: var(--display);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.rule p { margin: 0; color: var(--muted); max-width: 62ch; }
+.footer {
+  margin-top: 24px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line-soft);
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--dim);
+}
+@media print {
+  body { background: #fff; color: #111; }
+  .beat, .rule { break-inside: avoid; box-shadow: none; background: #fff; border-color: #ccc; }
+  .up, .badge.bull { color: #059669; }
+  .down { color: #dc2626; }
+  .beat-n, .slot.action h3, .rule .rule-label { color: #2563eb; }
+}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="brand">
+      <a class="logo" href="https://scanner.money">
+        <img src="assets/logo-256.png" width="32" height="32" alt="" />
+        <span>$canner.money</span>
+      </a>
+    </header>
+
+    <p class="date-line">Daily brief · Friday 18 September 2026</p>
+    <h1>Tech bounced; chips led; banks barely moved</h1>
+    <div class="lede">
+      <p>
+        Thursday repaired Wednesday’s hawkish hangover: Nasdaq jumped, semis ripped, and the
+        10-year slipped off the 5% handle. Banks barely budged. Friday’s futures are soft into the
+        weekend — that is a cooldown, not a chase.
+      </p>
+    </div>
+
+    <article class="beat">
+      <div class="beat-head">
+        <span class="beat-n">01</span>
+        <h2>Thursday rebound: indexes up, yields and oil ease, banks flat</h2>
+      </div>
+      <div class="slots">
+        <div class="slot">
+          <h3>What happened</h3>
+          <p>
+            Cash hours reversed Wednesday’s post-FOMC bruise. The Dow closed 51,779.85 (+0.62%),
+            the S&amp;P 500 7,637.74 (+1.14%), and the Nasdaq Composite 26,418.30 (+1.69%). Tech
+            carried the tape. The 10-year eased to about 4.93% after tagging a 5% handle, oil
+            softened, and the VIX printed multi-day lows. Banks only managed roughly +0.2% after
+            Wednesday’s about −2.3% hit — a limp repair next to the index bounce. Nontrivial
+            October hike odds remain priced. Into Friday morning, US equity futures were soft and
+            cautious ahead of the weekend.
+          </p>
+        </div>
+        <div class="slot">
+          <h3>What it means</h3>
+          <p class="muted">
+            Digestion after a hawkish 25 bp hike is not the same as a clean risk-on reset. Indexes
+            can rebound while rate-sensitive financials stay stuck — that is exactly what Thursday
+            showed. Soft yields and softer oil helped the multiple, but the still-priced October
+            hike path keeps a lid on how far the bank complex can run. Friday’s cautious futures
+            into a weekend say the market is marking time, not launching a fresh regime.
+          </p>
+        </div>
+        <div class="slot">
+          <h3>Chart and trend facts</h3>
+          <p class="muted">
+            Verified Thursday closes: Dow +0.62%, S&amp;P +1.14%, Nasdaq +1.69%; banks ~+0.2% after
+            Wed ~−2.3%; 10-year ~4.93% after the 5% handle; oil eased; VIX at multi-day lows.
+            October hike odds still nontrivial. Friday morning futures: soft / cautious.
+          </p>
+        </div>
+        <div class="slot action">
+          <h3>What to do</h3>
+          <p>
+            Treat Thursday as digestion, not a green light. Do not invent a bank bounce entry from
+            a ~+0.2% repair after a −2%-class day. Sit tight into soft Friday futures and the
+            weekend.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <article class="beat">
+      <div class="beat-head">
+        <span class="beat-n">02</span>
+        <h2>Chips led the rebound — AMD featured on price action</h2>
+      </div>
+      <div class="slots">
+        <div class="slot">
+          <h3>What happened</h3>
+          <p>
+            Semiconductors and AI hardware names powered Thursday’s leadership. Super Micro roughly
+            +9.5%, Intel 108.80 (+7.67%), Advanced Micro Devices 545.09 (+6.36%), Micron 977.50
+            (+5.50%), and Nvidia 219.34 (+2.54%). The Nasdaq’s +1.69% was a chip-led story more
+            than a broad equal-weight recovery. Banks’ near-flat session made the sector split
+            obvious: hardware beta healed; rate cyclicals did not.
+          </p>
+        </div>
+        <div class="slot">
+          <h3>What it means</h3>
+          <p class="muted">
+            After Wednesday’s hawkish presser, buyers stepped back into the AI compute complex —
+            Intel, AMD, Micron, Nvidia, and Super Micro — while leaving banks behind. That is a
+            leadership map for who cleared the digestion session, not a blank check to press every
+            Thursday winner into soft Friday futures and a weekend gap risk. Dispersion still
+            matters: megacap GPU beta (+2.5% Nvidia) lagged the sharper Intel/AMD/Micron moves.
+          </p>
+        </div>
+        <div class="slot">
+          <h3>Chart and trend facts</h3>
+          <span class="badge bull">Featured · AMD · Thu session</span>
+          <p class="facts">
+            <strong>Name:</strong> Advanced Micro Devices (AMD)<br />
+            <strong>Thu close:</strong> $545.09<br />
+            <strong>Thu change:</strong> <span class="up">+6.36%</span><br />
+            <strong>Role:</strong> AI / CPU-GPU compute beta
+          </p>
+          <p class="muted">
+            Price action only — no weekly flip print is available for AMD here. Peer tape Thursday:
+            SMCI ~+9.5%, INTC +7.67%, MU +5.50%, NVDA +2.54%.
+          </p>
+          <figure>
+            <div class="chart-frame">
+              <img src="charts/2026-09-18-amd.png" width="1200" height="675" alt="Advanced Micro Devices (AMD) daily chart — Thu close $545.09, +6.36%" />
+            </div>
+            <figcaption>AMD · daily · Thu close $545.09 · +6.36% · chips leadership</figcaption>
+          </figure>
+        </div>
+        <div class="slot action">
+          <h3>What to do</h3>
+          <p>
+            Map Thursday’s chip strength; do not chase AMD, Intel, Micron, or Super Micro into a
+            soft Friday futures tape and weekend. Prefer cash and confirmation over pressing
+            winners that already ran hard in one session.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <div class="rule">
+      <p class="rule-label">Rule of the day</p>
+      <h2>holdcash</h2>
+      <p>
+        Thursday was a tech-led digestion bounce after a hawkish hike — chips ripped, banks barely
+        moved, and Friday futures are soft into the weekend. Hold cash. Cooldown, not chase.
+      </p>
+    </div>
+
+    <footer class="footer">
+      $canner.money · daily brief · 2026-09-18 · not financial advice · English
+    </footer>
+  </div>
+</body>
+</html>
