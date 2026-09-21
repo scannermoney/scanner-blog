@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#0c1017" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <title>$canner.money — Crypto Brief · Mon 21 Sep 2026</title>
+  <meta name="description" content="BTC holds above $81k after Friday’s ETF surge; weekly spot BTC ETFs barely net positive while ETH funds lost ~$140M. Cooldown — don’t chase the reclaim into summit week." />
+  <meta name="application-name" content="$canner.money" />
+  <style>
+:root {
+  color-scheme: dark;
+  --bg: #0c1017;
+  --surface: #151b26;
+  --elev: #10151e;
+  --panel: #0f141c;
+  --ink: #e8eef6;
+  --muted: #9aa6b8;
+  --dim: #6e7a8c;
+  --line: #243041;
+  --line-soft: #1c2433;
+  --blue: #3b82f6;
+  --blue-dim: rgba(59, 130, 246, 0.14);
+  --blue-border: rgba(59, 130, 246, 0.38);
+  --bull: #34d399;
+  --bull-dim: rgba(52, 211, 153, 0.12);
+  --bear: #f87171;
+  --bear-dim: rgba(248, 113, 113, 0.12);
+  --radius: 14px;
+  --card-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+  --glow-1: rgba(59, 130, 246, 0.14);
+  --glow-2: rgba(52, 211, 153, 0.08);
+  --max: 760px;
+  --font: "Source Sans 3", system-ui, sans-serif;
+  --display: "Bricolage Grotesque", "Source Sans 3", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+* { box-sizing: border-box; }
+html { color-scheme: dark; }
+body {
+  margin: 0;
+  color: var(--ink);
+  font: 16px/1.65 var(--font);
+  background:
+    radial-gradient(900px 420px at 10% -10%, var(--glow-1), transparent 55%),
+    radial-gradient(700px 380px at 100% 0%, var(--glow-2), transparent 50%),
+    var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+.wrap {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 28px 18px 56px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  text-decoration: none;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.08rem;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+}
+.logo img { width: 32px; height: 32px; object-fit: contain; flex-shrink: 0; }
+.date-line {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--dim);
+  margin: 0 0 12px;
+}
+h1 {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(1.45rem, 4vw, 1.9rem);
+  line-height: 1.2;
+  margin: 0 0 12px;
+  letter-spacing: -0.03em;
+}
+.lede {
+  color: var(--muted);
+  margin: 0 0 28px;
+  max-width: 62ch;
+}
+.lede p { margin: 0; }
+.beat {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+  padding: 20px 18px 18px;
+  margin: 0 0 18px;
+}
+.beat-head {
+  margin: 0 0 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.beat-n {
+  display: block;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--blue);
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+.beat h2 {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.15rem;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+.slots { display: grid; gap: 14px; }
+.slot {
+  background: var(--elev);
+  border: 1px solid var(--line-soft);
+  border-radius: 12px;
+  padding: 14px 14px 12px;
+}
+.slot h3 {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin: 0 0 8px;
+}
+.slot p {
+  margin: 0;
+  color: var(--ink);
+  max-width: 62ch;
+}
+.slot p + p { margin-top: 10px; }
+.slot .muted { color: var(--muted); }
+.slot.action {
+  border-color: var(--blue-border);
+  background: linear-gradient(180deg, #172033 0%, var(--elev) 100%);
+}
+.slot.action h3 { color: var(--blue); }
+.badge {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border-radius: 999px;
+  margin: 0 0 10px;
+  border: 1px solid transparent;
+}
+.badge.bull { background: var(--bull-dim); color: var(--bull); border-color: rgba(52,211,153,.3); }
+.badge.bear { background: var(--bear-dim); color: var(--bear); border-color: rgba(248,113,113,.3); }
+.facts {
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--ink);
+  margin: 0 0 12px;
+}
+.facts strong { font-weight: 600; color: var(--muted); }
+.up { color: var(--bull); }
+.down { color: var(--bear); }
+.chart-frame {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.chart-frame img {
+  width: 100%;
+  object-fit: contain;
+  background: var(--panel);
+}
+figcaption {
+  margin-top: 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--dim);
+}
+.rule {
+  background: linear-gradient(180deg, #172033 0%, var(--elev) 100%);
+  border: 1px solid var(--blue-border);
+  border-radius: var(--radius);
+  padding: 18px 16px;
+  box-shadow: var(--card-shadow);
+  margin: 0 0 18px;
+}
+.rule .rule-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin: 0 0 8px;
+}
+.rule h2 {
+  margin: 0 0 8px;
+  font-size: 1.25rem;
+  font-family: var(--display);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.rule p { margin: 0; color: var(--muted); max-width: 62ch; }
+.sources {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  box-shadow: var(--card-shadow);
+}
+.sources h2 {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin: 0 0 10px;
+}
+.sources ul { margin: 0; padding: 0; list-style: none; }
+.sources li {
+  position: relative;
+  padding: 7px 0 7px 14px;
+  border-bottom: 1px solid var(--line-soft);
+  color: var(--muted);
+  font-size: 13px;
+}
+.sources li:last-child { border-bottom: 0; }
+.sources li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 14px;
+  width: 6px; height: 6px;
+  border-radius: 1px;
+  background: var(--blue);
+}
+.sources a { color: var(--blue); text-decoration: none; word-break: break-all; }
+.sources a:hover { text-decoration: underline; }
+.footer {
+  margin-top: 24px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line-soft);
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--dim);
+}
+@media print {
+  body { background: #fff; color: #111; }
+  .beat, .rule, .sources { break-inside: avoid; box-shadow: none; background: #fff; border-color: #ccc; }
+  .up, .badge.bull { color: #059669; }
+  .down, .badge.bear { color: #dc2626; }
+  .beat-n, .slot.action h3, .rule .rule-label, .sources a { color: #2563eb; }
+}
+</style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header class="brand">
+      <a class="logo" href="https://scanner.money">
+        <img src="assets/logo-256.png" width="32" height="32" alt="" />
+        <span>$canner.money</span>
+      </a>
+    </header>
+
+    <p class="date-line">Crypto brief · Monday 21 September 2026</p>
+    <h1>BTC holds $81k after Friday’s ETF surge</h1>
+    <div class="lede">
+      <p>
+        Bitcoin spent the weekend and Monday Asia hours above $81k, keeping Friday’s reclaim after
+        U.S. spot BTC ETFs took roughly $433 million on the day. The weekly scoreboard is less
+        heroic: those same products finished the week ending 18 Sep barely positive at about
+        $6.2 million net, while spot ETH ETFs lost about $140 million and ended a four-week inflow
+        streak. Fear &amp; Greed sits at 70 Greed. Into summit week, that is a hold of a bounce —
+        not a fresh chase.
+      </p>
+    </div>
+
+    <article class="beat">
+      <div class="beat-head">
+        <span class="beat-n">01</span>
+        <h2>Weekend hold: BTC products rescued the week, ETH did not</h2>
+      </div>
+      <div class="slots">
+        <div class="slot">
+          <h3>What happened</h3>
+          <p>
+            Into early Monday Zurich time, Coinbase 24h stats put BTC near $81.6k after an
+            $80.3k–$82.1k range, ETH near $2,664 after a $2,566–$2,707 range, SOL near $112.3 after
+            a $107.7–$113.4 range, and XRP near $1.44. Bloomberg and SoSoValue-linked reports show
+            U.S. spot BTC ETFs took about $593 million across Thursday and Friday — enough to erase
+            midweek redemptions and leave a thin ~$6.2 million weekly net inflow, with Friday alone
+            near $433 million (Fidelity FBTC ~$310.7 million, BlackRock IBIT ~$108.4 million). Spot
+            ETH ETFs, by contrast, finished the week about $140 million in the red despite a Friday
+            rebound near $144 million. Fear &amp; Greed printed 70 Greed, a tick softer than the
+            weekend 71 readings.
+          </p>
+        </div>
+        <div class="slot">
+          <h3>What it means</h3>
+          <p class="muted">
+            Price held the $81k handle, but product flows tell two stories. BTC spot ETFs needed a
+            late-week surge just to finish flat-to-green; ETH products broke their inflow streak.
+            That split matters for IBIT/FBTC holders versus ETHA and peer ETH funds, for exchange
+            beta in COIN, and for miners that still trade as leveraged BTC. Macro is not quiet
+            either: Bessent–He talks tee up Thursday’s Trump–Xi summit, oil has eased toward the
+            low-$100s, and equity futures opened soft-green — a risk backdrop that can support
+            crypto beta without confirming a new weekly trend.
+          </p>
+        </div>
+        <div class="slot">
+          <h3>Chart and trend facts</h3>
+          <p class="muted">
+            BTC, ETH, and SOL all print BULLISH with Hold / Trail on the free weekly trend check.
+            Majors are digesting Friday’s squeeze higher, not launching a fresh breakout claim.
+            Structure into summit week is “defend the reclaim,” not “add into strength.”
+          </p>
+        </div>
+        <div class="slot action">
+          <h3>What to do</h3>
+          <p>
+            Let Friday’s move cool. Prefer structure you already hold over chasing Monday’s $81k
+            hold into a summit-heavy calendar. If you add at all, keep it small and wait for flows
+            and price to agree again.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <article class="beat">
+      <div class="beat-head">
+        <span class="beat-n">02</span>
+        <h2>BTC featured: reclaim held, weekly ETF score barely green</h2>
+      </div>
+      <div class="slots">
+        <div class="slot">
+          <h3>What happened</h3>
+          <p>
+            Bitcoin’s Coinbase window opened near $80.3k and last printed about $81.6k, with the
+            high stretching above $82k. That continues Friday’s roughly 6% cash surge (Yahoo daily
+            close ~$76.4k → ~$80.9k on 18 Sep) after Thursday–Friday ETF buying returned. Listed
+            crypto proxies closed Friday hard green with the same tape: COIN at $194.25, MSTR at
+            $153.92, MARA at $13.24, and RIOT at $23.75. ETH and SOL outperformed BTC on the Monday
+            24h percentage window, but ETH’s weekly ETF book remains the weak product side.
+          </p>
+        </div>
+        <div class="slot">
+          <h3>What it means</h3>
+          <p class="muted">
+            A held reclaim above $81k is constructive for BTC-proximate names and for holders
+            already in confirmed structure. It is not the same as a clean weekly flow confirmation
+            — a $6.2 million net week after hundreds of millions of midweek outflows is fragile.
+            ETH beta remains the more conflicted sleeve while ETH ETFs are in weekly redemption.
+            Summit headlines, oil, and Fed-speak can still yank risk appetite before Thursday.
+          </p>
+        </div>
+        <div class="slot">
+          <h3>Chart and trend facts</h3>
+          <span class="badge bull">Bullish · Hold / Trail</span>
+          <p class="facts">
+            <strong>BTC</strong> daily · BULLISH · Hold / Trail<br />
+            <strong>BTC 24h</strong> ~$81,617 · open $80,285 · high $82,087 · low $80,119<br />
+            <strong>ETH 24h</strong> ~$2,664 · range $2,566–$2,707<br />
+            <strong>SOL 24h</strong> ~$112.3 · range $107.7–$113.4<br />
+            <strong>Fear &amp; Greed</strong> 70 Greed<br />
+            <strong>BTC ETFs</strong> week ~+$6.2M · Fri ~+$433M<br />
+            <strong>ETH ETFs</strong> week ~−$140M · streak broken
+          </p>
+          <p class="muted">
+            BTC daily is labeled BULLISH with action Hold / Trail. Price is defending the post-Friday
+            reclaim above $81k after the late-August breakout range. The open risk is a fade back
+            through the $80k handle if ETF demand stalls and summit headlines turn risk-off — that
+            would argue Monday’s hold was digestion of Friday’s squeeze, not fresh trend fuel.
+          </p>
+          <figure>
+            <div class="chart-frame">
+              <img src="charts/2026-09-21-btc.png" width="1200" height="675" alt="Bitcoin (BTC) daily chart — BULLISH, last ~$81,617, Hold / Trail" />
+            </div>
+            <figcaption>BTC · daily · BULLISH · last ~$81,617 · Hold / Trail · Mon 21 Sep 2026</figcaption>
+          </figure>
+        </div>
+        <div class="slot action">
+          <h3>What to do</h3>
+          <p>
+            Cooldown. If you already hold confirmed BTC structure, trail it and respect the level.
+            New risk into a Monday hold after a five-to-six percent Friday candle — with only a
+            thin weekly ETF print and ETH products still red — is optional. Prefer cash or tiny
+            size until the next clean flow day agrees with price.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <div class="rule">
+      <p class="rule-label">Rule of the day</p>
+      <h2>cooldown</h2>
+      <p>
+        BTC held $81k after Friday’s ETF surge, but the weekly spot BTC book was barely green and
+        ETH funds lost about $140 million. A reclaim into summit week is not an A+ chase. Cool the
+        size — or stay flat — until price and product flows tell the same story again.
+      </p>
+    </div>
+
+    <section class="sources">
+      <h2>Sources</h2>
+      <ul>
+        <li><a href="https://www.coindesk.com/markets/2026/09/21/bitcoin-rises-above-usd81-000-while-near-jumps-23-on-zcash-swap-traffic">CoinDesk — Bitcoin above $81k; tokenized-stock path / Asia risk tone</a></li>
+        <li><a href="https://www.bloomberg.com/news/articles/2026-09-21/bitcoin-etfs-swing-positive-as-token-holds-jump-above-81-000">Bloomberg — Bitcoin ETFs swing positive; BTC above $81k</a></li>
+        <li><a href="https://www.gate.com/news/detail/BTC/bitcoin-etfs-post-62m-weekly-inflow-as-ether-funds-end-streak-24405428">Gate / The Block via SoSoValue — BTC ETFs +$6.2M week; ETH −$140M</a></li>
+        <li><a href="https://www.panews.io/articles/01a0c20e-51bd-7487-85e9-eb60a5b4cf0c">PANews / SoSoValue — BTC spot ETF weekly inflows ~$6.21M</a></li>
+        <li><a href="https://www.panews.io/articles/01a0c20f-0946-7546-ad67-9a624ca91d6b">PANews / SoSoValue — ETH spot ETF weekly outflows ~$140M</a></li>
+        <li><a href="https://www.proactiveinvestors.com/companies/news/1098790/on-the-chain-bitcoin-pushes-above-us-81-000-as-etf-buying-returns-update-1098790.html">Proactive Investors — BTC above $81k as ETF buying returns</a></li>
+        <li><a href="https://api.exchange.coinbase.com/products/BTC-USD/stats">Coinbase Exchange — BTC-USD 24h stats</a></li>
+        <li><a href="https://api.alternative.me/fng/">Alternative.me — Fear &amp; Greed Index</a></li>
+      </ul>
+    </section>
+
+    <footer class="footer">
+      $canner.money · crypto brief · 2026-09-21 · not financial advice · English
+    </footer>
+  </div>
+</body>
+</html>
